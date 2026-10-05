@@ -1,0 +1,6289 @@
+{
+ "name": "PolyForce",
+ "params": [
+  {
+   "key": "status",
+   "name": "Status",
+   "min": 0,
+   "max": 0,
+   "display": "string",
+   "type": "readout"
+  },
+  {
+   "key": "volume",
+   "name": "Volume",
+   "min": 0,
+   "max": 1,
+   "default": 0.818182,
+   "display": "string"
+  },
+  {
+   "key": "voices",
+   "name": "Voices",
+   "min": 0,
+   "max": 1,
+   "default": 1.0,
+   "display": "string"
+  },
+  {
+   "key": "routing",
+   "name": "Filter Routing",
+   "options": [
+    "Serial",
+    "Parallel"
+   ],
+   "default": "Serial"
+  },
+  {
+   "key": "o1_wave",
+   "name": "O1 Wave",
+   "options": [
+    "Table",
+    "Sine",
+    "Triangle",
+    "Saw",
+    "Square",
+    "Pulse",
+    "Noise"
+   ],
+   "default": "Table"
+  },
+  {
+   "key": "o1_wave__open",
+   "name": "O1 Wave List",
+   "options": [
+    "Closed",
+    "Open"
+   ],
+   "default": "Closed",
+   "popup_of": "o1_wave",
+   "type": "enum"
+  },
+  {
+   "key": "o1_table",
+   "name": "O1 Table",
+   "min": 0,
+   "max": 1,
+   "display": "string",
+   "type": "stepper"
+  },
+  {
+   "key": "o1_table_prev",
+   "name": "O1 Table Prev",
+   "min": 0,
+   "max": 1,
+   "momentary": true,
+   "type": "trigger"
+  },
+  {
+   "key": "o1_table_next",
+   "name": "O1 Table Next",
+   "min": 0,
+   "max": 1,
+   "momentary": true,
+   "type": "trigger"
+  },
+  {
+   "key": "o1_pos",
+   "name": "O1 Position",
+   "min": 0,
+   "max": 1,
+   "default": 0.66,
+   "display": "string"
+  },
+  {
+   "key": "o1_oct",
+   "name": "O1 Octave",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "o1_semi",
+   "name": "O1 Semi",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "o1_fine",
+   "name": "O1 Fine",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "o1_uni",
+   "name": "O1 Unison",
+   "min": 0,
+   "max": 1,
+   "default": 0.0,
+   "display": "string"
+  },
+  {
+   "key": "o1_detune",
+   "name": "O1 Detune",
+   "min": 0,
+   "max": 1,
+   "default": 0.3,
+   "display": "string"
+  },
+  {
+   "key": "o1_width",
+   "name": "O1 Width",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "o1_level",
+   "name": "O1 Level",
+   "min": 0,
+   "max": 1,
+   "default": 0.8,
+   "display": "string"
+  },
+  {
+   "key": "o1_pan",
+   "name": "O1 Pan",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "o1_phase",
+   "name": "O1 Phase",
+   "min": 0,
+   "max": 1,
+   "default": 0.0,
+   "display": "string"
+  },
+  {
+   "key": "o1_phmode",
+   "name": "O1 Phase Mode",
+   "options": [
+    "Reset",
+    "Random",
+    "Free"
+   ],
+   "default": "Reset"
+  },
+  {
+   "key": "o1_route",
+   "name": "O1 Route",
+   "options": [
+    "F1",
+    "F2",
+    "F1+F2",
+    "Direct"
+   ],
+   "default": "F1"
+  },
+  {
+   "key": "o1_sub_wave",
+   "name": "Sub1 Wave",
+   "options": [
+    "Sine",
+    "Triangle",
+    "Saw",
+    "Square"
+   ],
+   "default": "Sine"
+  },
+  {
+   "key": "o1_sub_tune",
+   "name": "Sub1 Tune",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "o1_sub_level",
+   "name": "Sub1 Level",
+   "min": 0,
+   "max": 1,
+   "default": 0.0,
+   "display": "string"
+  },
+  {
+   "key": "o2_wave",
+   "name": "O2 Wave",
+   "options": [
+    "Table",
+    "Sine",
+    "Triangle",
+    "Saw",
+    "Square",
+    "Pulse",
+    "Noise"
+   ],
+   "default": "Table"
+  },
+  {
+   "key": "o2_wave__open",
+   "name": "O2 Wave List",
+   "options": [
+    "Closed",
+    "Open"
+   ],
+   "default": "Closed",
+   "popup_of": "o2_wave",
+   "type": "enum"
+  },
+  {
+   "key": "o2_table",
+   "name": "O2 Table",
+   "min": 0,
+   "max": 1,
+   "display": "string",
+   "type": "stepper"
+  },
+  {
+   "key": "o2_table_prev",
+   "name": "O2 Table Prev",
+   "min": 0,
+   "max": 1,
+   "momentary": true,
+   "type": "trigger"
+  },
+  {
+   "key": "o2_table_next",
+   "name": "O2 Table Next",
+   "min": 0,
+   "max": 1,
+   "momentary": true,
+   "type": "trigger"
+  },
+  {
+   "key": "o2_pos",
+   "name": "O2 Position",
+   "min": 0,
+   "max": 1,
+   "default": 0.66,
+   "display": "string"
+  },
+  {
+   "key": "o2_oct",
+   "name": "O2 Octave",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "o2_semi",
+   "name": "O2 Semi",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "o2_fine",
+   "name": "O2 Fine",
+   "min": 0,
+   "max": 1,
+   "default": 0.535,
+   "display": "string"
+  },
+  {
+   "key": "o2_uni",
+   "name": "O2 Unison",
+   "min": 0,
+   "max": 1,
+   "default": 0.0,
+   "display": "string"
+  },
+  {
+   "key": "o2_detune",
+   "name": "O2 Detune",
+   "min": 0,
+   "max": 1,
+   "default": 0.3,
+   "display": "string"
+  },
+  {
+   "key": "o2_width",
+   "name": "O2 Width",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "o2_level",
+   "name": "O2 Level",
+   "min": 0,
+   "max": 1,
+   "default": 0.6,
+   "display": "string"
+  },
+  {
+   "key": "o2_pan",
+   "name": "O2 Pan",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "o2_phase",
+   "name": "O2 Phase",
+   "min": 0,
+   "max": 1,
+   "default": 0.0,
+   "display": "string"
+  },
+  {
+   "key": "o2_phmode",
+   "name": "O2 Phase Mode",
+   "options": [
+    "Reset",
+    "Random",
+    "Free"
+   ],
+   "default": "Reset"
+  },
+  {
+   "key": "o2_route",
+   "name": "O2 Route",
+   "options": [
+    "F1",
+    "F2",
+    "F1+F2",
+    "Direct"
+   ],
+   "default": "F1"
+  },
+  {
+   "key": "o2_sub_wave",
+   "name": "Sub2 Wave",
+   "options": [
+    "Sine",
+    "Triangle",
+    "Saw",
+    "Square"
+   ],
+   "default": "Sine"
+  },
+  {
+   "key": "o2_sub_tune",
+   "name": "Sub2 Tune",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "o2_sub_level",
+   "name": "Sub2 Level",
+   "min": 0,
+   "max": 1,
+   "default": 0.0,
+   "display": "string"
+  },
+  {
+   "key": "noise_level",
+   "name": "Noise Level",
+   "min": 0,
+   "max": 1,
+   "default": 0.0,
+   "display": "string"
+  },
+  {
+   "key": "noise_color",
+   "name": "Noise Colour",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "noise_route",
+   "name": "Noise Route",
+   "options": [
+    "F1",
+    "F2",
+    "F1+F2",
+    "Direct"
+   ],
+   "default": "F1"
+  },
+  {
+   "key": "engine",
+   "name": "Filter Engine",
+   "options": [
+    "Clean",
+    "Normal",
+    "Dirty"
+   ],
+   "default": "Normal"
+  },
+  {
+   "key": "f1_type",
+   "name": "F1 Type",
+   "options": [
+    "Off",
+    "LP12",
+    "LP24",
+    "BP",
+    "HP12",
+    "HP24",
+    "Notch",
+    "Peak",
+    "Comb+",
+    "Comb-",
+    "Vowel"
+   ],
+   "default": "LP24"
+  },
+  {
+   "key": "f1_type__open",
+   "name": "F1 Type List",
+   "options": [
+    "Closed",
+    "Open"
+   ],
+   "default": "Closed",
+   "popup_of": "f1_type",
+   "type": "enum"
+  },
+  {
+   "key": "f1_cut",
+   "name": "F1 Cutoff",
+   "min": 0,
+   "max": 1,
+   "default": 0.592717,
+   "display": "string"
+  },
+  {
+   "key": "f1_res",
+   "name": "F1 Reso",
+   "min": 0,
+   "max": 1,
+   "default": 0.25,
+   "display": "string"
+  },
+  {
+   "key": "f1_env",
+   "name": "F1 Env 2",
+   "min": 0,
+   "max": 1,
+   "default": 0.625,
+   "display": "string"
+  },
+  {
+   "key": "f1_key",
+   "name": "F1 Keytrack",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "f1_drive",
+   "name": "F1 Drive",
+   "min": 0,
+   "max": 1,
+   "default": 0.0,
+   "display": "string"
+  },
+  {
+   "key": "f2_type",
+   "name": "F2 Type",
+   "options": [
+    "Off",
+    "LP12",
+    "LP24",
+    "BP",
+    "HP12",
+    "HP24",
+    "Notch",
+    "Peak",
+    "Comb+",
+    "Comb-",
+    "Vowel"
+   ],
+   "default": "Off"
+  },
+  {
+   "key": "f2_type__open",
+   "name": "F2 Type List",
+   "options": [
+    "Closed",
+    "Open"
+   ],
+   "default": "Closed",
+   "popup_of": "f2_type",
+   "type": "enum"
+  },
+  {
+   "key": "f2_cut",
+   "name": "F2 Cutoff",
+   "min": 0,
+   "max": 1,
+   "default": 0.867353,
+   "display": "string"
+  },
+  {
+   "key": "f2_res",
+   "name": "F2 Reso",
+   "min": 0,
+   "max": 1,
+   "default": 0.25,
+   "display": "string"
+  },
+  {
+   "key": "f2_env",
+   "name": "F2 Env 2",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "f2_key",
+   "name": "F2 Keytrack",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "f2_drive",
+   "name": "F2 Drive",
+   "min": 0,
+   "max": 1,
+   "default": 0.0,
+   "display": "string"
+  },
+  {
+   "key": "e1_a",
+   "name": "E1 Attack",
+   "min": 0,
+   "max": 1,
+   "default": 0.110932,
+   "display": "string"
+  },
+  {
+   "key": "e1_d",
+   "name": "E1 Decay",
+   "min": 0,
+   "max": 1,
+   "default": 0.604985,
+   "display": "string"
+  },
+  {
+   "key": "e1_s",
+   "name": "E1 Sustain",
+   "min": 0,
+   "max": 1,
+   "default": 0.8,
+   "display": "string"
+  },
+  {
+   "key": "e1_r",
+   "name": "E1 Release",
+   "min": 0,
+   "max": 1,
+   "default": 0.575937,
+   "display": "string"
+  },
+  {
+   "key": "e1_vel",
+   "name": "E1 Velocity",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "e2_a",
+   "name": "E2 Attack",
+   "min": 0,
+   "max": 1,
+   "default": 0.0,
+   "display": "string"
+  },
+  {
+   "key": "e2_d",
+   "name": "E2 Decay",
+   "min": 0,
+   "max": 1,
+   "default": 0.645927,
+   "display": "string"
+  },
+  {
+   "key": "e2_s",
+   "name": "E2 Sustain",
+   "min": 0,
+   "max": 1,
+   "default": 0.2,
+   "display": "string"
+  },
+  {
+   "key": "e2_r",
+   "name": "E2 Release",
+   "min": 0,
+   "max": 1,
+   "default": 0.627517,
+   "display": "string"
+  },
+  {
+   "key": "e2_pos",
+   "name": "E2 > Pos",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "e2_vel",
+   "name": "E2 Velocity",
+   "min": 0,
+   "max": 1,
+   "default": 0.0,
+   "display": "string"
+  },
+  {
+   "key": "e2_loop",
+   "name": "E2 Loop",
+   "options": [
+    "Off",
+    "Loop"
+   ],
+   "default": "Off"
+  },
+  {
+   "key": "l1_wave",
+   "name": "L1 Wave",
+   "options": [
+    "Sine",
+    "Triangle",
+    "Saw Up",
+    "Saw Down",
+    "Square",
+    "S&H",
+    "Smooth"
+   ],
+   "default": "Sine"
+  },
+  {
+   "key": "l1_wave__open",
+   "name": "L1 Wave List",
+   "options": [
+    "Closed",
+    "Open"
+   ],
+   "default": "Closed",
+   "popup_of": "l1_wave",
+   "type": "enum"
+  },
+  {
+   "key": "l1_sync",
+   "name": "L1 Sync",
+   "options": [
+    "Free",
+    "Sync"
+   ],
+   "default": "Free"
+  },
+  {
+   "key": "l1_rate",
+   "name": "L1 Rate",
+   "min": 0,
+   "max": 1,
+   "default": 0.605872,
+   "display": "string"
+  },
+  {
+   "key": "l1_div",
+   "name": "L1 Sync Rate",
+   "options": [
+    "8 bars",
+    "4 bars",
+    "2 bars",
+    "1 bar",
+    "1/2",
+    "1/2T",
+    "1/4",
+    "1/4T",
+    "1/4.",
+    "1/8",
+    "1/8T",
+    "1/8.",
+    "1/16",
+    "1/16T",
+    "1/16.",
+    "1/32",
+    "1/32T"
+   ],
+   "default": "1/4"
+  },
+  {
+   "key": "l1_div__open",
+   "name": "L1 Sync Rate List",
+   "options": [
+    "Closed",
+    "Open"
+   ],
+   "default": "Closed",
+   "popup_of": "l1_div",
+   "type": "enum"
+  },
+  {
+   "key": "l1_phase",
+   "name": "L1 Phase",
+   "min": 0,
+   "max": 1,
+   "default": 0.0,
+   "display": "string"
+  },
+  {
+   "key": "l1_delay",
+   "name": "L1 Delay",
+   "min": 0,
+   "max": 1,
+   "default": 0.0,
+   "display": "string"
+  },
+  {
+   "key": "l1_fade",
+   "name": "L1 Fade In",
+   "min": 0,
+   "max": 1,
+   "default": 0.0,
+   "display": "string"
+  },
+  {
+   "key": "l1_trig",
+   "name": "L1 Trigger",
+   "options": [
+    "Retrig",
+    "Free",
+    "Global"
+   ],
+   "default": "Retrig"
+  },
+  {
+   "key": "l1_polar",
+   "name": "L1 Polarity",
+   "options": [
+    "Bipolar",
+    "Unipolar"
+   ],
+   "default": "Bipolar"
+  },
+  {
+   "key": "l1_depth",
+   "name": "L1 Depth",
+   "min": 0,
+   "max": 1,
+   "default": 1.0,
+   "display": "string"
+  },
+  {
+   "key": "l2_wave",
+   "name": "L2 Wave",
+   "options": [
+    "Sine",
+    "Triangle",
+    "Saw Up",
+    "Saw Down",
+    "Square",
+    "S&H",
+    "Smooth"
+   ],
+   "default": "Sine"
+  },
+  {
+   "key": "l2_wave__open",
+   "name": "L2 Wave List",
+   "options": [
+    "Closed",
+    "Open"
+   ],
+   "default": "Closed",
+   "popup_of": "l2_wave",
+   "type": "enum"
+  },
+  {
+   "key": "l2_sync",
+   "name": "L2 Sync",
+   "options": [
+    "Free",
+    "Sync"
+   ],
+   "default": "Free"
+  },
+  {
+   "key": "l2_rate",
+   "name": "L2 Rate",
+   "min": 0,
+   "max": 1,
+   "default": 0.423486,
+   "display": "string"
+  },
+  {
+   "key": "l2_div",
+   "name": "L2 Sync Rate",
+   "options": [
+    "8 bars",
+    "4 bars",
+    "2 bars",
+    "1 bar",
+    "1/2",
+    "1/2T",
+    "1/4",
+    "1/4T",
+    "1/4.",
+    "1/8",
+    "1/8T",
+    "1/8.",
+    "1/16",
+    "1/16T",
+    "1/16.",
+    "1/32",
+    "1/32T"
+   ],
+   "default": "1/4"
+  },
+  {
+   "key": "l2_div__open",
+   "name": "L2 Sync Rate List",
+   "options": [
+    "Closed",
+    "Open"
+   ],
+   "default": "Closed",
+   "popup_of": "l2_div",
+   "type": "enum"
+  },
+  {
+   "key": "l2_phase",
+   "name": "L2 Phase",
+   "min": 0,
+   "max": 1,
+   "default": 0.0,
+   "display": "string"
+  },
+  {
+   "key": "l2_delay",
+   "name": "L2 Delay",
+   "min": 0,
+   "max": 1,
+   "default": 0.0,
+   "display": "string"
+  },
+  {
+   "key": "l2_fade",
+   "name": "L2 Fade In",
+   "min": 0,
+   "max": 1,
+   "default": 0.0,
+   "display": "string"
+  },
+  {
+   "key": "l2_trig",
+   "name": "L2 Trigger",
+   "options": [
+    "Retrig",
+    "Free",
+    "Global"
+   ],
+   "default": "Retrig"
+  },
+  {
+   "key": "l2_polar",
+   "name": "L2 Polarity",
+   "options": [
+    "Bipolar",
+    "Unipolar"
+   ],
+   "default": "Bipolar"
+  },
+  {
+   "key": "l2_depth",
+   "name": "L2 Depth",
+   "min": 0,
+   "max": 1,
+   "default": 1.0,
+   "display": "string"
+  },
+  {
+   "key": "m1_src",
+   "name": "M1 Source",
+   "options": [
+    "None",
+    "Env 1",
+    "Env 2",
+    "LFO 1",
+    "LFO 2",
+    "Velocity",
+    "Note",
+    "Mod Wheel",
+    "Aftertouch",
+    "Bend",
+    "Random",
+    "Alternate",
+    "Gate",
+    "Seq",
+    "Shape 1",
+    "Shape 2",
+    "Shape 3",
+    "Shape 4",
+    "X1",
+    "Y1",
+    "X2",
+    "Y2",
+    "X3",
+    "Y3",
+    "X4",
+    "Y4",
+    "Breath",
+    "Expression",
+    "Constant"
+   ],
+   "default": "None"
+  },
+  {
+   "key": "m1_via",
+   "name": "M1 Via",
+   "options": [
+    "None",
+    "Env 1",
+    "Env 2",
+    "LFO 1",
+    "LFO 2",
+    "Velocity",
+    "Note",
+    "Mod Wheel",
+    "Aftertouch",
+    "Bend",
+    "Random",
+    "Alternate",
+    "Gate",
+    "Seq",
+    "Shape 1",
+    "Shape 2",
+    "Shape 3",
+    "Shape 4",
+    "X1",
+    "Y1",
+    "X2",
+    "Y2",
+    "X3",
+    "Y3",
+    "X4",
+    "Y4",
+    "Breath",
+    "Expression",
+    "Constant"
+   ],
+   "default": "None"
+  },
+  {
+   "key": "m1_mod",
+   "name": "M1 Modifier",
+   "options": [
+    "None",
+    "Curve",
+    "Rectify",
+    "Quantize",
+    "S&H",
+    "Slew"
+   ],
+   "default": "None"
+  },
+  {
+   "key": "m1_modamt",
+   "name": "M1 Mod Amt",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "m1_t1",
+   "name": "M1 Target 1",
+   "options": [
+    "Off",
+    "Pitch",
+    "Osc1 Pitch",
+    "Osc2 Pitch",
+    "Osc1 Pos",
+    "Osc2 Pos",
+    "Osc1 Level",
+    "Osc2 Level",
+    "Osc1 Pan",
+    "Osc2 Pan",
+    "Osc1 Detune",
+    "Osc2 Detune",
+    "Sub1 Level",
+    "Sub2 Level",
+    "Noise Level",
+    "Noise Colour",
+    "F1 Cutoff",
+    "F2 Cutoff",
+    "Cutoffs",
+    "F1 Reso",
+    "F2 Reso",
+    "F1 Drive",
+    "F2 Drive",
+    "Env1 Attack",
+    "Env1 Decay",
+    "Env1 Sustain",
+    "Env1 Release",
+    "Env2 Attack",
+    "Env2 Decay",
+    "Env2 Sustain",
+    "Env2 Release",
+    "LFO1 Rate",
+    "LFO2 Rate",
+    "LFO1 Depth",
+    "LFO2 Depth",
+    "Volume",
+    "Pan"
+   ],
+   "default": "Off"
+  },
+  {
+   "key": "m1_a1",
+   "name": "M1 Amt 1",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "m1_t2",
+   "name": "M1 Target 2",
+   "options": [
+    "Off",
+    "Pitch",
+    "Osc1 Pitch",
+    "Osc2 Pitch",
+    "Osc1 Pos",
+    "Osc2 Pos",
+    "Osc1 Level",
+    "Osc2 Level",
+    "Osc1 Pan",
+    "Osc2 Pan",
+    "Osc1 Detune",
+    "Osc2 Detune",
+    "Sub1 Level",
+    "Sub2 Level",
+    "Noise Level",
+    "Noise Colour",
+    "F1 Cutoff",
+    "F2 Cutoff",
+    "Cutoffs",
+    "F1 Reso",
+    "F2 Reso",
+    "F1 Drive",
+    "F2 Drive",
+    "Env1 Attack",
+    "Env1 Decay",
+    "Env1 Sustain",
+    "Env1 Release",
+    "Env2 Attack",
+    "Env2 Decay",
+    "Env2 Sustain",
+    "Env2 Release",
+    "LFO1 Rate",
+    "LFO2 Rate",
+    "LFO1 Depth",
+    "LFO2 Depth",
+    "Volume",
+    "Pan"
+   ],
+   "default": "Off"
+  },
+  {
+   "key": "m1_a2",
+   "name": "M1 Amt 2",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "m1_src__open",
+   "name": "M1 Source List",
+   "options": [
+    "Closed",
+    "Open"
+   ],
+   "default": "Closed",
+   "popup_of": "m1_src",
+   "type": "enum"
+  },
+  {
+   "key": "m1_via__open",
+   "name": "M1 Via List",
+   "options": [
+    "Closed",
+    "Open"
+   ],
+   "default": "Closed",
+   "popup_of": "m1_via",
+   "type": "enum"
+  },
+  {
+   "key": "m1_mod__open",
+   "name": "M1 Modifier List",
+   "options": [
+    "Closed",
+    "Open"
+   ],
+   "default": "Closed",
+   "popup_of": "m1_mod",
+   "type": "enum"
+  },
+  {
+   "key": "m1_t1__open",
+   "name": "M1 Target 1 List",
+   "options": [
+    "Closed",
+    "Open"
+   ],
+   "default": "Closed",
+   "popup_of": "m1_t1",
+   "type": "enum"
+  },
+  {
+   "key": "m1_t2__open",
+   "name": "M1 Target 2 List",
+   "options": [
+    "Closed",
+    "Open"
+   ],
+   "default": "Closed",
+   "popup_of": "m1_t2",
+   "type": "enum"
+  },
+  {
+   "key": "m2_src",
+   "name": "M2 Source",
+   "options": [
+    "None",
+    "Env 1",
+    "Env 2",
+    "LFO 1",
+    "LFO 2",
+    "Velocity",
+    "Note",
+    "Mod Wheel",
+    "Aftertouch",
+    "Bend",
+    "Random",
+    "Alternate",
+    "Gate",
+    "Seq",
+    "Shape 1",
+    "Shape 2",
+    "Shape 3",
+    "Shape 4",
+    "X1",
+    "Y1",
+    "X2",
+    "Y2",
+    "X3",
+    "Y3",
+    "X4",
+    "Y4",
+    "Breath",
+    "Expression",
+    "Constant"
+   ],
+   "default": "None"
+  },
+  {
+   "key": "m2_via",
+   "name": "M2 Via",
+   "options": [
+    "None",
+    "Env 1",
+    "Env 2",
+    "LFO 1",
+    "LFO 2",
+    "Velocity",
+    "Note",
+    "Mod Wheel",
+    "Aftertouch",
+    "Bend",
+    "Random",
+    "Alternate",
+    "Gate",
+    "Seq",
+    "Shape 1",
+    "Shape 2",
+    "Shape 3",
+    "Shape 4",
+    "X1",
+    "Y1",
+    "X2",
+    "Y2",
+    "X3",
+    "Y3",
+    "X4",
+    "Y4",
+    "Breath",
+    "Expression",
+    "Constant"
+   ],
+   "default": "None"
+  },
+  {
+   "key": "m2_mod",
+   "name": "M2 Modifier",
+   "options": [
+    "None",
+    "Curve",
+    "Rectify",
+    "Quantize",
+    "S&H",
+    "Slew"
+   ],
+   "default": "None"
+  },
+  {
+   "key": "m2_modamt",
+   "name": "M2 Mod Amt",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "m2_t1",
+   "name": "M2 Target 1",
+   "options": [
+    "Off",
+    "Pitch",
+    "Osc1 Pitch",
+    "Osc2 Pitch",
+    "Osc1 Pos",
+    "Osc2 Pos",
+    "Osc1 Level",
+    "Osc2 Level",
+    "Osc1 Pan",
+    "Osc2 Pan",
+    "Osc1 Detune",
+    "Osc2 Detune",
+    "Sub1 Level",
+    "Sub2 Level",
+    "Noise Level",
+    "Noise Colour",
+    "F1 Cutoff",
+    "F2 Cutoff",
+    "Cutoffs",
+    "F1 Reso",
+    "F2 Reso",
+    "F1 Drive",
+    "F2 Drive",
+    "Env1 Attack",
+    "Env1 Decay",
+    "Env1 Sustain",
+    "Env1 Release",
+    "Env2 Attack",
+    "Env2 Decay",
+    "Env2 Sustain",
+    "Env2 Release",
+    "LFO1 Rate",
+    "LFO2 Rate",
+    "LFO1 Depth",
+    "LFO2 Depth",
+    "Volume",
+    "Pan"
+   ],
+   "default": "Off"
+  },
+  {
+   "key": "m2_a1",
+   "name": "M2 Amt 1",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "m2_t2",
+   "name": "M2 Target 2",
+   "options": [
+    "Off",
+    "Pitch",
+    "Osc1 Pitch",
+    "Osc2 Pitch",
+    "Osc1 Pos",
+    "Osc2 Pos",
+    "Osc1 Level",
+    "Osc2 Level",
+    "Osc1 Pan",
+    "Osc2 Pan",
+    "Osc1 Detune",
+    "Osc2 Detune",
+    "Sub1 Level",
+    "Sub2 Level",
+    "Noise Level",
+    "Noise Colour",
+    "F1 Cutoff",
+    "F2 Cutoff",
+    "Cutoffs",
+    "F1 Reso",
+    "F2 Reso",
+    "F1 Drive",
+    "F2 Drive",
+    "Env1 Attack",
+    "Env1 Decay",
+    "Env1 Sustain",
+    "Env1 Release",
+    "Env2 Attack",
+    "Env2 Decay",
+    "Env2 Sustain",
+    "Env2 Release",
+    "LFO1 Rate",
+    "LFO2 Rate",
+    "LFO1 Depth",
+    "LFO2 Depth",
+    "Volume",
+    "Pan"
+   ],
+   "default": "Off"
+  },
+  {
+   "key": "m2_a2",
+   "name": "M2 Amt 2",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "m2_src__open",
+   "name": "M2 Source List",
+   "options": [
+    "Closed",
+    "Open"
+   ],
+   "default": "Closed",
+   "popup_of": "m2_src",
+   "type": "enum"
+  },
+  {
+   "key": "m2_via__open",
+   "name": "M2 Via List",
+   "options": [
+    "Closed",
+    "Open"
+   ],
+   "default": "Closed",
+   "popup_of": "m2_via",
+   "type": "enum"
+  },
+  {
+   "key": "m2_mod__open",
+   "name": "M2 Modifier List",
+   "options": [
+    "Closed",
+    "Open"
+   ],
+   "default": "Closed",
+   "popup_of": "m2_mod",
+   "type": "enum"
+  },
+  {
+   "key": "m2_t1__open",
+   "name": "M2 Target 1 List",
+   "options": [
+    "Closed",
+    "Open"
+   ],
+   "default": "Closed",
+   "popup_of": "m2_t1",
+   "type": "enum"
+  },
+  {
+   "key": "m2_t2__open",
+   "name": "M2 Target 2 List",
+   "options": [
+    "Closed",
+    "Open"
+   ],
+   "default": "Closed",
+   "popup_of": "m2_t2",
+   "type": "enum"
+  },
+  {
+   "key": "m3_src",
+   "name": "M3 Source",
+   "options": [
+    "None",
+    "Env 1",
+    "Env 2",
+    "LFO 1",
+    "LFO 2",
+    "Velocity",
+    "Note",
+    "Mod Wheel",
+    "Aftertouch",
+    "Bend",
+    "Random",
+    "Alternate",
+    "Gate",
+    "Seq",
+    "Shape 1",
+    "Shape 2",
+    "Shape 3",
+    "Shape 4",
+    "X1",
+    "Y1",
+    "X2",
+    "Y2",
+    "X3",
+    "Y3",
+    "X4",
+    "Y4",
+    "Breath",
+    "Expression",
+    "Constant"
+   ],
+   "default": "None"
+  },
+  {
+   "key": "m3_via",
+   "name": "M3 Via",
+   "options": [
+    "None",
+    "Env 1",
+    "Env 2",
+    "LFO 1",
+    "LFO 2",
+    "Velocity",
+    "Note",
+    "Mod Wheel",
+    "Aftertouch",
+    "Bend",
+    "Random",
+    "Alternate",
+    "Gate",
+    "Seq",
+    "Shape 1",
+    "Shape 2",
+    "Shape 3",
+    "Shape 4",
+    "X1",
+    "Y1",
+    "X2",
+    "Y2",
+    "X3",
+    "Y3",
+    "X4",
+    "Y4",
+    "Breath",
+    "Expression",
+    "Constant"
+   ],
+   "default": "None"
+  },
+  {
+   "key": "m3_mod",
+   "name": "M3 Modifier",
+   "options": [
+    "None",
+    "Curve",
+    "Rectify",
+    "Quantize",
+    "S&H",
+    "Slew"
+   ],
+   "default": "None"
+  },
+  {
+   "key": "m3_modamt",
+   "name": "M3 Mod Amt",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "m3_t1",
+   "name": "M3 Target 1",
+   "options": [
+    "Off",
+    "Pitch",
+    "Osc1 Pitch",
+    "Osc2 Pitch",
+    "Osc1 Pos",
+    "Osc2 Pos",
+    "Osc1 Level",
+    "Osc2 Level",
+    "Osc1 Pan",
+    "Osc2 Pan",
+    "Osc1 Detune",
+    "Osc2 Detune",
+    "Sub1 Level",
+    "Sub2 Level",
+    "Noise Level",
+    "Noise Colour",
+    "F1 Cutoff",
+    "F2 Cutoff",
+    "Cutoffs",
+    "F1 Reso",
+    "F2 Reso",
+    "F1 Drive",
+    "F2 Drive",
+    "Env1 Attack",
+    "Env1 Decay",
+    "Env1 Sustain",
+    "Env1 Release",
+    "Env2 Attack",
+    "Env2 Decay",
+    "Env2 Sustain",
+    "Env2 Release",
+    "LFO1 Rate",
+    "LFO2 Rate",
+    "LFO1 Depth",
+    "LFO2 Depth",
+    "Volume",
+    "Pan"
+   ],
+   "default": "Off"
+  },
+  {
+   "key": "m3_a1",
+   "name": "M3 Amt 1",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "m3_t2",
+   "name": "M3 Target 2",
+   "options": [
+    "Off",
+    "Pitch",
+    "Osc1 Pitch",
+    "Osc2 Pitch",
+    "Osc1 Pos",
+    "Osc2 Pos",
+    "Osc1 Level",
+    "Osc2 Level",
+    "Osc1 Pan",
+    "Osc2 Pan",
+    "Osc1 Detune",
+    "Osc2 Detune",
+    "Sub1 Level",
+    "Sub2 Level",
+    "Noise Level",
+    "Noise Colour",
+    "F1 Cutoff",
+    "F2 Cutoff",
+    "Cutoffs",
+    "F1 Reso",
+    "F2 Reso",
+    "F1 Drive",
+    "F2 Drive",
+    "Env1 Attack",
+    "Env1 Decay",
+    "Env1 Sustain",
+    "Env1 Release",
+    "Env2 Attack",
+    "Env2 Decay",
+    "Env2 Sustain",
+    "Env2 Release",
+    "LFO1 Rate",
+    "LFO2 Rate",
+    "LFO1 Depth",
+    "LFO2 Depth",
+    "Volume",
+    "Pan"
+   ],
+   "default": "Off"
+  },
+  {
+   "key": "m3_a2",
+   "name": "M3 Amt 2",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "m3_src__open",
+   "name": "M3 Source List",
+   "options": [
+    "Closed",
+    "Open"
+   ],
+   "default": "Closed",
+   "popup_of": "m3_src",
+   "type": "enum"
+  },
+  {
+   "key": "m3_via__open",
+   "name": "M3 Via List",
+   "options": [
+    "Closed",
+    "Open"
+   ],
+   "default": "Closed",
+   "popup_of": "m3_via",
+   "type": "enum"
+  },
+  {
+   "key": "m3_mod__open",
+   "name": "M3 Modifier List",
+   "options": [
+    "Closed",
+    "Open"
+   ],
+   "default": "Closed",
+   "popup_of": "m3_mod",
+   "type": "enum"
+  },
+  {
+   "key": "m3_t1__open",
+   "name": "M3 Target 1 List",
+   "options": [
+    "Closed",
+    "Open"
+   ],
+   "default": "Closed",
+   "popup_of": "m3_t1",
+   "type": "enum"
+  },
+  {
+   "key": "m3_t2__open",
+   "name": "M3 Target 2 List",
+   "options": [
+    "Closed",
+    "Open"
+   ],
+   "default": "Closed",
+   "popup_of": "m3_t2",
+   "type": "enum"
+  },
+  {
+   "key": "m4_src",
+   "name": "M4 Source",
+   "options": [
+    "None",
+    "Env 1",
+    "Env 2",
+    "LFO 1",
+    "LFO 2",
+    "Velocity",
+    "Note",
+    "Mod Wheel",
+    "Aftertouch",
+    "Bend",
+    "Random",
+    "Alternate",
+    "Gate",
+    "Seq",
+    "Shape 1",
+    "Shape 2",
+    "Shape 3",
+    "Shape 4",
+    "X1",
+    "Y1",
+    "X2",
+    "Y2",
+    "X3",
+    "Y3",
+    "X4",
+    "Y4",
+    "Breath",
+    "Expression",
+    "Constant"
+   ],
+   "default": "None"
+  },
+  {
+   "key": "m4_via",
+   "name": "M4 Via",
+   "options": [
+    "None",
+    "Env 1",
+    "Env 2",
+    "LFO 1",
+    "LFO 2",
+    "Velocity",
+    "Note",
+    "Mod Wheel",
+    "Aftertouch",
+    "Bend",
+    "Random",
+    "Alternate",
+    "Gate",
+    "Seq",
+    "Shape 1",
+    "Shape 2",
+    "Shape 3",
+    "Shape 4",
+    "X1",
+    "Y1",
+    "X2",
+    "Y2",
+    "X3",
+    "Y3",
+    "X4",
+    "Y4",
+    "Breath",
+    "Expression",
+    "Constant"
+   ],
+   "default": "None"
+  },
+  {
+   "key": "m4_mod",
+   "name": "M4 Modifier",
+   "options": [
+    "None",
+    "Curve",
+    "Rectify",
+    "Quantize",
+    "S&H",
+    "Slew"
+   ],
+   "default": "None"
+  },
+  {
+   "key": "m4_modamt",
+   "name": "M4 Mod Amt",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "m4_t1",
+   "name": "M4 Target 1",
+   "options": [
+    "Off",
+    "Pitch",
+    "Osc1 Pitch",
+    "Osc2 Pitch",
+    "Osc1 Pos",
+    "Osc2 Pos",
+    "Osc1 Level",
+    "Osc2 Level",
+    "Osc1 Pan",
+    "Osc2 Pan",
+    "Osc1 Detune",
+    "Osc2 Detune",
+    "Sub1 Level",
+    "Sub2 Level",
+    "Noise Level",
+    "Noise Colour",
+    "F1 Cutoff",
+    "F2 Cutoff",
+    "Cutoffs",
+    "F1 Reso",
+    "F2 Reso",
+    "F1 Drive",
+    "F2 Drive",
+    "Env1 Attack",
+    "Env1 Decay",
+    "Env1 Sustain",
+    "Env1 Release",
+    "Env2 Attack",
+    "Env2 Decay",
+    "Env2 Sustain",
+    "Env2 Release",
+    "LFO1 Rate",
+    "LFO2 Rate",
+    "LFO1 Depth",
+    "LFO2 Depth",
+    "Volume",
+    "Pan"
+   ],
+   "default": "Off"
+  },
+  {
+   "key": "m4_a1",
+   "name": "M4 Amt 1",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "m4_t2",
+   "name": "M4 Target 2",
+   "options": [
+    "Off",
+    "Pitch",
+    "Osc1 Pitch",
+    "Osc2 Pitch",
+    "Osc1 Pos",
+    "Osc2 Pos",
+    "Osc1 Level",
+    "Osc2 Level",
+    "Osc1 Pan",
+    "Osc2 Pan",
+    "Osc1 Detune",
+    "Osc2 Detune",
+    "Sub1 Level",
+    "Sub2 Level",
+    "Noise Level",
+    "Noise Colour",
+    "F1 Cutoff",
+    "F2 Cutoff",
+    "Cutoffs",
+    "F1 Reso",
+    "F2 Reso",
+    "F1 Drive",
+    "F2 Drive",
+    "Env1 Attack",
+    "Env1 Decay",
+    "Env1 Sustain",
+    "Env1 Release",
+    "Env2 Attack",
+    "Env2 Decay",
+    "Env2 Sustain",
+    "Env2 Release",
+    "LFO1 Rate",
+    "LFO2 Rate",
+    "LFO1 Depth",
+    "LFO2 Depth",
+    "Volume",
+    "Pan"
+   ],
+   "default": "Off"
+  },
+  {
+   "key": "m4_a2",
+   "name": "M4 Amt 2",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "m4_src__open",
+   "name": "M4 Source List",
+   "options": [
+    "Closed",
+    "Open"
+   ],
+   "default": "Closed",
+   "popup_of": "m4_src",
+   "type": "enum"
+  },
+  {
+   "key": "m4_via__open",
+   "name": "M4 Via List",
+   "options": [
+    "Closed",
+    "Open"
+   ],
+   "default": "Closed",
+   "popup_of": "m4_via",
+   "type": "enum"
+  },
+  {
+   "key": "m4_mod__open",
+   "name": "M4 Modifier List",
+   "options": [
+    "Closed",
+    "Open"
+   ],
+   "default": "Closed",
+   "popup_of": "m4_mod",
+   "type": "enum"
+  },
+  {
+   "key": "m4_t1__open",
+   "name": "M4 Target 1 List",
+   "options": [
+    "Closed",
+    "Open"
+   ],
+   "default": "Closed",
+   "popup_of": "m4_t1",
+   "type": "enum"
+  },
+  {
+   "key": "m4_t2__open",
+   "name": "M4 Target 2 List",
+   "options": [
+    "Closed",
+    "Open"
+   ],
+   "default": "Closed",
+   "popup_of": "m4_t2",
+   "type": "enum"
+  },
+  {
+   "key": "m5_src",
+   "name": "M5 Source",
+   "options": [
+    "None",
+    "Env 1",
+    "Env 2",
+    "LFO 1",
+    "LFO 2",
+    "Velocity",
+    "Note",
+    "Mod Wheel",
+    "Aftertouch",
+    "Bend",
+    "Random",
+    "Alternate",
+    "Gate",
+    "Seq",
+    "Shape 1",
+    "Shape 2",
+    "Shape 3",
+    "Shape 4",
+    "X1",
+    "Y1",
+    "X2",
+    "Y2",
+    "X3",
+    "Y3",
+    "X4",
+    "Y4",
+    "Breath",
+    "Expression",
+    "Constant"
+   ],
+   "default": "None"
+  },
+  {
+   "key": "m5_via",
+   "name": "M5 Via",
+   "options": [
+    "None",
+    "Env 1",
+    "Env 2",
+    "LFO 1",
+    "LFO 2",
+    "Velocity",
+    "Note",
+    "Mod Wheel",
+    "Aftertouch",
+    "Bend",
+    "Random",
+    "Alternate",
+    "Gate",
+    "Seq",
+    "Shape 1",
+    "Shape 2",
+    "Shape 3",
+    "Shape 4",
+    "X1",
+    "Y1",
+    "X2",
+    "Y2",
+    "X3",
+    "Y3",
+    "X4",
+    "Y4",
+    "Breath",
+    "Expression",
+    "Constant"
+   ],
+   "default": "None"
+  },
+  {
+   "key": "m5_mod",
+   "name": "M5 Modifier",
+   "options": [
+    "None",
+    "Curve",
+    "Rectify",
+    "Quantize",
+    "S&H",
+    "Slew"
+   ],
+   "default": "None"
+  },
+  {
+   "key": "m5_modamt",
+   "name": "M5 Mod Amt",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "m5_t1",
+   "name": "M5 Target 1",
+   "options": [
+    "Off",
+    "Pitch",
+    "Osc1 Pitch",
+    "Osc2 Pitch",
+    "Osc1 Pos",
+    "Osc2 Pos",
+    "Osc1 Level",
+    "Osc2 Level",
+    "Osc1 Pan",
+    "Osc2 Pan",
+    "Osc1 Detune",
+    "Osc2 Detune",
+    "Sub1 Level",
+    "Sub2 Level",
+    "Noise Level",
+    "Noise Colour",
+    "F1 Cutoff",
+    "F2 Cutoff",
+    "Cutoffs",
+    "F1 Reso",
+    "F2 Reso",
+    "F1 Drive",
+    "F2 Drive",
+    "Env1 Attack",
+    "Env1 Decay",
+    "Env1 Sustain",
+    "Env1 Release",
+    "Env2 Attack",
+    "Env2 Decay",
+    "Env2 Sustain",
+    "Env2 Release",
+    "LFO1 Rate",
+    "LFO2 Rate",
+    "LFO1 Depth",
+    "LFO2 Depth",
+    "Volume",
+    "Pan"
+   ],
+   "default": "Off"
+  },
+  {
+   "key": "m5_a1",
+   "name": "M5 Amt 1",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "m5_t2",
+   "name": "M5 Target 2",
+   "options": [
+    "Off",
+    "Pitch",
+    "Osc1 Pitch",
+    "Osc2 Pitch",
+    "Osc1 Pos",
+    "Osc2 Pos",
+    "Osc1 Level",
+    "Osc2 Level",
+    "Osc1 Pan",
+    "Osc2 Pan",
+    "Osc1 Detune",
+    "Osc2 Detune",
+    "Sub1 Level",
+    "Sub2 Level",
+    "Noise Level",
+    "Noise Colour",
+    "F1 Cutoff",
+    "F2 Cutoff",
+    "Cutoffs",
+    "F1 Reso",
+    "F2 Reso",
+    "F1 Drive",
+    "F2 Drive",
+    "Env1 Attack",
+    "Env1 Decay",
+    "Env1 Sustain",
+    "Env1 Release",
+    "Env2 Attack",
+    "Env2 Decay",
+    "Env2 Sustain",
+    "Env2 Release",
+    "LFO1 Rate",
+    "LFO2 Rate",
+    "LFO1 Depth",
+    "LFO2 Depth",
+    "Volume",
+    "Pan"
+   ],
+   "default": "Off"
+  },
+  {
+   "key": "m5_a2",
+   "name": "M5 Amt 2",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "m5_src__open",
+   "name": "M5 Source List",
+   "options": [
+    "Closed",
+    "Open"
+   ],
+   "default": "Closed",
+   "popup_of": "m5_src",
+   "type": "enum"
+  },
+  {
+   "key": "m5_via__open",
+   "name": "M5 Via List",
+   "options": [
+    "Closed",
+    "Open"
+   ],
+   "default": "Closed",
+   "popup_of": "m5_via",
+   "type": "enum"
+  },
+  {
+   "key": "m5_mod__open",
+   "name": "M5 Modifier List",
+   "options": [
+    "Closed",
+    "Open"
+   ],
+   "default": "Closed",
+   "popup_of": "m5_mod",
+   "type": "enum"
+  },
+  {
+   "key": "m5_t1__open",
+   "name": "M5 Target 1 List",
+   "options": [
+    "Closed",
+    "Open"
+   ],
+   "default": "Closed",
+   "popup_of": "m5_t1",
+   "type": "enum"
+  },
+  {
+   "key": "m5_t2__open",
+   "name": "M5 Target 2 List",
+   "options": [
+    "Closed",
+    "Open"
+   ],
+   "default": "Closed",
+   "popup_of": "m5_t2",
+   "type": "enum"
+  },
+  {
+   "key": "m6_src",
+   "name": "M6 Source",
+   "options": [
+    "None",
+    "Env 1",
+    "Env 2",
+    "LFO 1",
+    "LFO 2",
+    "Velocity",
+    "Note",
+    "Mod Wheel",
+    "Aftertouch",
+    "Bend",
+    "Random",
+    "Alternate",
+    "Gate",
+    "Seq",
+    "Shape 1",
+    "Shape 2",
+    "Shape 3",
+    "Shape 4",
+    "X1",
+    "Y1",
+    "X2",
+    "Y2",
+    "X3",
+    "Y3",
+    "X4",
+    "Y4",
+    "Breath",
+    "Expression",
+    "Constant"
+   ],
+   "default": "None"
+  },
+  {
+   "key": "m6_via",
+   "name": "M6 Via",
+   "options": [
+    "None",
+    "Env 1",
+    "Env 2",
+    "LFO 1",
+    "LFO 2",
+    "Velocity",
+    "Note",
+    "Mod Wheel",
+    "Aftertouch",
+    "Bend",
+    "Random",
+    "Alternate",
+    "Gate",
+    "Seq",
+    "Shape 1",
+    "Shape 2",
+    "Shape 3",
+    "Shape 4",
+    "X1",
+    "Y1",
+    "X2",
+    "Y2",
+    "X3",
+    "Y3",
+    "X4",
+    "Y4",
+    "Breath",
+    "Expression",
+    "Constant"
+   ],
+   "default": "None"
+  },
+  {
+   "key": "m6_mod",
+   "name": "M6 Modifier",
+   "options": [
+    "None",
+    "Curve",
+    "Rectify",
+    "Quantize",
+    "S&H",
+    "Slew"
+   ],
+   "default": "None"
+  },
+  {
+   "key": "m6_modamt",
+   "name": "M6 Mod Amt",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "m6_t1",
+   "name": "M6 Target 1",
+   "options": [
+    "Off",
+    "Pitch",
+    "Osc1 Pitch",
+    "Osc2 Pitch",
+    "Osc1 Pos",
+    "Osc2 Pos",
+    "Osc1 Level",
+    "Osc2 Level",
+    "Osc1 Pan",
+    "Osc2 Pan",
+    "Osc1 Detune",
+    "Osc2 Detune",
+    "Sub1 Level",
+    "Sub2 Level",
+    "Noise Level",
+    "Noise Colour",
+    "F1 Cutoff",
+    "F2 Cutoff",
+    "Cutoffs",
+    "F1 Reso",
+    "F2 Reso",
+    "F1 Drive",
+    "F2 Drive",
+    "Env1 Attack",
+    "Env1 Decay",
+    "Env1 Sustain",
+    "Env1 Release",
+    "Env2 Attack",
+    "Env2 Decay",
+    "Env2 Sustain",
+    "Env2 Release",
+    "LFO1 Rate",
+    "LFO2 Rate",
+    "LFO1 Depth",
+    "LFO2 Depth",
+    "Volume",
+    "Pan"
+   ],
+   "default": "Off"
+  },
+  {
+   "key": "m6_a1",
+   "name": "M6 Amt 1",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "m6_t2",
+   "name": "M6 Target 2",
+   "options": [
+    "Off",
+    "Pitch",
+    "Osc1 Pitch",
+    "Osc2 Pitch",
+    "Osc1 Pos",
+    "Osc2 Pos",
+    "Osc1 Level",
+    "Osc2 Level",
+    "Osc1 Pan",
+    "Osc2 Pan",
+    "Osc1 Detune",
+    "Osc2 Detune",
+    "Sub1 Level",
+    "Sub2 Level",
+    "Noise Level",
+    "Noise Colour",
+    "F1 Cutoff",
+    "F2 Cutoff",
+    "Cutoffs",
+    "F1 Reso",
+    "F2 Reso",
+    "F1 Drive",
+    "F2 Drive",
+    "Env1 Attack",
+    "Env1 Decay",
+    "Env1 Sustain",
+    "Env1 Release",
+    "Env2 Attack",
+    "Env2 Decay",
+    "Env2 Sustain",
+    "Env2 Release",
+    "LFO1 Rate",
+    "LFO2 Rate",
+    "LFO1 Depth",
+    "LFO2 Depth",
+    "Volume",
+    "Pan"
+   ],
+   "default": "Off"
+  },
+  {
+   "key": "m6_a2",
+   "name": "M6 Amt 2",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "m6_src__open",
+   "name": "M6 Source List",
+   "options": [
+    "Closed",
+    "Open"
+   ],
+   "default": "Closed",
+   "popup_of": "m6_src",
+   "type": "enum"
+  },
+  {
+   "key": "m6_via__open",
+   "name": "M6 Via List",
+   "options": [
+    "Closed",
+    "Open"
+   ],
+   "default": "Closed",
+   "popup_of": "m6_via",
+   "type": "enum"
+  },
+  {
+   "key": "m6_mod__open",
+   "name": "M6 Modifier List",
+   "options": [
+    "Closed",
+    "Open"
+   ],
+   "default": "Closed",
+   "popup_of": "m6_mod",
+   "type": "enum"
+  },
+  {
+   "key": "m6_t1__open",
+   "name": "M6 Target 1 List",
+   "options": [
+    "Closed",
+    "Open"
+   ],
+   "default": "Closed",
+   "popup_of": "m6_t1",
+   "type": "enum"
+  },
+  {
+   "key": "m6_t2__open",
+   "name": "M6 Target 2 List",
+   "options": [
+    "Closed",
+    "Open"
+   ],
+   "default": "Closed",
+   "popup_of": "m6_t2",
+   "type": "enum"
+  },
+  {
+   "key": "m7_src",
+   "name": "M7 Source",
+   "options": [
+    "None",
+    "Env 1",
+    "Env 2",
+    "LFO 1",
+    "LFO 2",
+    "Velocity",
+    "Note",
+    "Mod Wheel",
+    "Aftertouch",
+    "Bend",
+    "Random",
+    "Alternate",
+    "Gate",
+    "Seq",
+    "Shape 1",
+    "Shape 2",
+    "Shape 3",
+    "Shape 4",
+    "X1",
+    "Y1",
+    "X2",
+    "Y2",
+    "X3",
+    "Y3",
+    "X4",
+    "Y4",
+    "Breath",
+    "Expression",
+    "Constant"
+   ],
+   "default": "None"
+  },
+  {
+   "key": "m7_via",
+   "name": "M7 Via",
+   "options": [
+    "None",
+    "Env 1",
+    "Env 2",
+    "LFO 1",
+    "LFO 2",
+    "Velocity",
+    "Note",
+    "Mod Wheel",
+    "Aftertouch",
+    "Bend",
+    "Random",
+    "Alternate",
+    "Gate",
+    "Seq",
+    "Shape 1",
+    "Shape 2",
+    "Shape 3",
+    "Shape 4",
+    "X1",
+    "Y1",
+    "X2",
+    "Y2",
+    "X3",
+    "Y3",
+    "X4",
+    "Y4",
+    "Breath",
+    "Expression",
+    "Constant"
+   ],
+   "default": "None"
+  },
+  {
+   "key": "m7_mod",
+   "name": "M7 Modifier",
+   "options": [
+    "None",
+    "Curve",
+    "Rectify",
+    "Quantize",
+    "S&H",
+    "Slew"
+   ],
+   "default": "None"
+  },
+  {
+   "key": "m7_modamt",
+   "name": "M7 Mod Amt",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "m7_t1",
+   "name": "M7 Target 1",
+   "options": [
+    "Off",
+    "Pitch",
+    "Osc1 Pitch",
+    "Osc2 Pitch",
+    "Osc1 Pos",
+    "Osc2 Pos",
+    "Osc1 Level",
+    "Osc2 Level",
+    "Osc1 Pan",
+    "Osc2 Pan",
+    "Osc1 Detune",
+    "Osc2 Detune",
+    "Sub1 Level",
+    "Sub2 Level",
+    "Noise Level",
+    "Noise Colour",
+    "F1 Cutoff",
+    "F2 Cutoff",
+    "Cutoffs",
+    "F1 Reso",
+    "F2 Reso",
+    "F1 Drive",
+    "F2 Drive",
+    "Env1 Attack",
+    "Env1 Decay",
+    "Env1 Sustain",
+    "Env1 Release",
+    "Env2 Attack",
+    "Env2 Decay",
+    "Env2 Sustain",
+    "Env2 Release",
+    "LFO1 Rate",
+    "LFO2 Rate",
+    "LFO1 Depth",
+    "LFO2 Depth",
+    "Volume",
+    "Pan"
+   ],
+   "default": "Off"
+  },
+  {
+   "key": "m7_a1",
+   "name": "M7 Amt 1",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "m7_t2",
+   "name": "M7 Target 2",
+   "options": [
+    "Off",
+    "Pitch",
+    "Osc1 Pitch",
+    "Osc2 Pitch",
+    "Osc1 Pos",
+    "Osc2 Pos",
+    "Osc1 Level",
+    "Osc2 Level",
+    "Osc1 Pan",
+    "Osc2 Pan",
+    "Osc1 Detune",
+    "Osc2 Detune",
+    "Sub1 Level",
+    "Sub2 Level",
+    "Noise Level",
+    "Noise Colour",
+    "F1 Cutoff",
+    "F2 Cutoff",
+    "Cutoffs",
+    "F1 Reso",
+    "F2 Reso",
+    "F1 Drive",
+    "F2 Drive",
+    "Env1 Attack",
+    "Env1 Decay",
+    "Env1 Sustain",
+    "Env1 Release",
+    "Env2 Attack",
+    "Env2 Decay",
+    "Env2 Sustain",
+    "Env2 Release",
+    "LFO1 Rate",
+    "LFO2 Rate",
+    "LFO1 Depth",
+    "LFO2 Depth",
+    "Volume",
+    "Pan"
+   ],
+   "default": "Off"
+  },
+  {
+   "key": "m7_a2",
+   "name": "M7 Amt 2",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "m7_src__open",
+   "name": "M7 Source List",
+   "options": [
+    "Closed",
+    "Open"
+   ],
+   "default": "Closed",
+   "popup_of": "m7_src",
+   "type": "enum"
+  },
+  {
+   "key": "m7_via__open",
+   "name": "M7 Via List",
+   "options": [
+    "Closed",
+    "Open"
+   ],
+   "default": "Closed",
+   "popup_of": "m7_via",
+   "type": "enum"
+  },
+  {
+   "key": "m7_mod__open",
+   "name": "M7 Modifier List",
+   "options": [
+    "Closed",
+    "Open"
+   ],
+   "default": "Closed",
+   "popup_of": "m7_mod",
+   "type": "enum"
+  },
+  {
+   "key": "m7_t1__open",
+   "name": "M7 Target 1 List",
+   "options": [
+    "Closed",
+    "Open"
+   ],
+   "default": "Closed",
+   "popup_of": "m7_t1",
+   "type": "enum"
+  },
+  {
+   "key": "m7_t2__open",
+   "name": "M7 Target 2 List",
+   "options": [
+    "Closed",
+    "Open"
+   ],
+   "default": "Closed",
+   "popup_of": "m7_t2",
+   "type": "enum"
+  },
+  {
+   "key": "m8_src",
+   "name": "M8 Source",
+   "options": [
+    "None",
+    "Env 1",
+    "Env 2",
+    "LFO 1",
+    "LFO 2",
+    "Velocity",
+    "Note",
+    "Mod Wheel",
+    "Aftertouch",
+    "Bend",
+    "Random",
+    "Alternate",
+    "Gate",
+    "Seq",
+    "Shape 1",
+    "Shape 2",
+    "Shape 3",
+    "Shape 4",
+    "X1",
+    "Y1",
+    "X2",
+    "Y2",
+    "X3",
+    "Y3",
+    "X4",
+    "Y4",
+    "Breath",
+    "Expression",
+    "Constant"
+   ],
+   "default": "None"
+  },
+  {
+   "key": "m8_via",
+   "name": "M8 Via",
+   "options": [
+    "None",
+    "Env 1",
+    "Env 2",
+    "LFO 1",
+    "LFO 2",
+    "Velocity",
+    "Note",
+    "Mod Wheel",
+    "Aftertouch",
+    "Bend",
+    "Random",
+    "Alternate",
+    "Gate",
+    "Seq",
+    "Shape 1",
+    "Shape 2",
+    "Shape 3",
+    "Shape 4",
+    "X1",
+    "Y1",
+    "X2",
+    "Y2",
+    "X3",
+    "Y3",
+    "X4",
+    "Y4",
+    "Breath",
+    "Expression",
+    "Constant"
+   ],
+   "default": "None"
+  },
+  {
+   "key": "m8_mod",
+   "name": "M8 Modifier",
+   "options": [
+    "None",
+    "Curve",
+    "Rectify",
+    "Quantize",
+    "S&H",
+    "Slew"
+   ],
+   "default": "None"
+  },
+  {
+   "key": "m8_modamt",
+   "name": "M8 Mod Amt",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "m8_t1",
+   "name": "M8 Target 1",
+   "options": [
+    "Off",
+    "Pitch",
+    "Osc1 Pitch",
+    "Osc2 Pitch",
+    "Osc1 Pos",
+    "Osc2 Pos",
+    "Osc1 Level",
+    "Osc2 Level",
+    "Osc1 Pan",
+    "Osc2 Pan",
+    "Osc1 Detune",
+    "Osc2 Detune",
+    "Sub1 Level",
+    "Sub2 Level",
+    "Noise Level",
+    "Noise Colour",
+    "F1 Cutoff",
+    "F2 Cutoff",
+    "Cutoffs",
+    "F1 Reso",
+    "F2 Reso",
+    "F1 Drive",
+    "F2 Drive",
+    "Env1 Attack",
+    "Env1 Decay",
+    "Env1 Sustain",
+    "Env1 Release",
+    "Env2 Attack",
+    "Env2 Decay",
+    "Env2 Sustain",
+    "Env2 Release",
+    "LFO1 Rate",
+    "LFO2 Rate",
+    "LFO1 Depth",
+    "LFO2 Depth",
+    "Volume",
+    "Pan"
+   ],
+   "default": "Off"
+  },
+  {
+   "key": "m8_a1",
+   "name": "M8 Amt 1",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "m8_t2",
+   "name": "M8 Target 2",
+   "options": [
+    "Off",
+    "Pitch",
+    "Osc1 Pitch",
+    "Osc2 Pitch",
+    "Osc1 Pos",
+    "Osc2 Pos",
+    "Osc1 Level",
+    "Osc2 Level",
+    "Osc1 Pan",
+    "Osc2 Pan",
+    "Osc1 Detune",
+    "Osc2 Detune",
+    "Sub1 Level",
+    "Sub2 Level",
+    "Noise Level",
+    "Noise Colour",
+    "F1 Cutoff",
+    "F2 Cutoff",
+    "Cutoffs",
+    "F1 Reso",
+    "F2 Reso",
+    "F1 Drive",
+    "F2 Drive",
+    "Env1 Attack",
+    "Env1 Decay",
+    "Env1 Sustain",
+    "Env1 Release",
+    "Env2 Attack",
+    "Env2 Decay",
+    "Env2 Sustain",
+    "Env2 Release",
+    "LFO1 Rate",
+    "LFO2 Rate",
+    "LFO1 Depth",
+    "LFO2 Depth",
+    "Volume",
+    "Pan"
+   ],
+   "default": "Off"
+  },
+  {
+   "key": "m8_a2",
+   "name": "M8 Amt 2",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "m8_src__open",
+   "name": "M8 Source List",
+   "options": [
+    "Closed",
+    "Open"
+   ],
+   "default": "Closed",
+   "popup_of": "m8_src",
+   "type": "enum"
+  },
+  {
+   "key": "m8_via__open",
+   "name": "M8 Via List",
+   "options": [
+    "Closed",
+    "Open"
+   ],
+   "default": "Closed",
+   "popup_of": "m8_via",
+   "type": "enum"
+  },
+  {
+   "key": "m8_mod__open",
+   "name": "M8 Modifier List",
+   "options": [
+    "Closed",
+    "Open"
+   ],
+   "default": "Closed",
+   "popup_of": "m8_mod",
+   "type": "enum"
+  },
+  {
+   "key": "m8_t1__open",
+   "name": "M8 Target 1 List",
+   "options": [
+    "Closed",
+    "Open"
+   ],
+   "default": "Closed",
+   "popup_of": "m8_t1",
+   "type": "enum"
+  },
+  {
+   "key": "m8_t2__open",
+   "name": "M8 Target 2 List",
+   "options": [
+    "Closed",
+    "Open"
+   ],
+   "default": "Closed",
+   "popup_of": "m8_t2",
+   "type": "enum"
+  },
+  {
+   "key": "m9_src",
+   "name": "M9 Source",
+   "options": [
+    "None",
+    "Env 1",
+    "Env 2",
+    "LFO 1",
+    "LFO 2",
+    "Velocity",
+    "Note",
+    "Mod Wheel",
+    "Aftertouch",
+    "Bend",
+    "Random",
+    "Alternate",
+    "Gate",
+    "Seq",
+    "Shape 1",
+    "Shape 2",
+    "Shape 3",
+    "Shape 4",
+    "X1",
+    "Y1",
+    "X2",
+    "Y2",
+    "X3",
+    "Y3",
+    "X4",
+    "Y4",
+    "Breath",
+    "Expression",
+    "Constant"
+   ],
+   "default": "None"
+  },
+  {
+   "key": "m9_via",
+   "name": "M9 Via",
+   "options": [
+    "None",
+    "Env 1",
+    "Env 2",
+    "LFO 1",
+    "LFO 2",
+    "Velocity",
+    "Note",
+    "Mod Wheel",
+    "Aftertouch",
+    "Bend",
+    "Random",
+    "Alternate",
+    "Gate",
+    "Seq",
+    "Shape 1",
+    "Shape 2",
+    "Shape 3",
+    "Shape 4",
+    "X1",
+    "Y1",
+    "X2",
+    "Y2",
+    "X3",
+    "Y3",
+    "X4",
+    "Y4",
+    "Breath",
+    "Expression",
+    "Constant"
+   ],
+   "default": "None"
+  },
+  {
+   "key": "m9_mod",
+   "name": "M9 Modifier",
+   "options": [
+    "None",
+    "Curve",
+    "Rectify",
+    "Quantize",
+    "S&H",
+    "Slew"
+   ],
+   "default": "None"
+  },
+  {
+   "key": "m9_modamt",
+   "name": "M9 Mod Amt",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "m9_t1",
+   "name": "M9 Target 1",
+   "options": [
+    "Off",
+    "Pitch",
+    "Osc1 Pitch",
+    "Osc2 Pitch",
+    "Osc1 Pos",
+    "Osc2 Pos",
+    "Osc1 Level",
+    "Osc2 Level",
+    "Osc1 Pan",
+    "Osc2 Pan",
+    "Osc1 Detune",
+    "Osc2 Detune",
+    "Sub1 Level",
+    "Sub2 Level",
+    "Noise Level",
+    "Noise Colour",
+    "F1 Cutoff",
+    "F2 Cutoff",
+    "Cutoffs",
+    "F1 Reso",
+    "F2 Reso",
+    "F1 Drive",
+    "F2 Drive",
+    "Env1 Attack",
+    "Env1 Decay",
+    "Env1 Sustain",
+    "Env1 Release",
+    "Env2 Attack",
+    "Env2 Decay",
+    "Env2 Sustain",
+    "Env2 Release",
+    "LFO1 Rate",
+    "LFO2 Rate",
+    "LFO1 Depth",
+    "LFO2 Depth",
+    "Volume",
+    "Pan"
+   ],
+   "default": "Off"
+  },
+  {
+   "key": "m9_a1",
+   "name": "M9 Amt 1",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "m9_t2",
+   "name": "M9 Target 2",
+   "options": [
+    "Off",
+    "Pitch",
+    "Osc1 Pitch",
+    "Osc2 Pitch",
+    "Osc1 Pos",
+    "Osc2 Pos",
+    "Osc1 Level",
+    "Osc2 Level",
+    "Osc1 Pan",
+    "Osc2 Pan",
+    "Osc1 Detune",
+    "Osc2 Detune",
+    "Sub1 Level",
+    "Sub2 Level",
+    "Noise Level",
+    "Noise Colour",
+    "F1 Cutoff",
+    "F2 Cutoff",
+    "Cutoffs",
+    "F1 Reso",
+    "F2 Reso",
+    "F1 Drive",
+    "F2 Drive",
+    "Env1 Attack",
+    "Env1 Decay",
+    "Env1 Sustain",
+    "Env1 Release",
+    "Env2 Attack",
+    "Env2 Decay",
+    "Env2 Sustain",
+    "Env2 Release",
+    "LFO1 Rate",
+    "LFO2 Rate",
+    "LFO1 Depth",
+    "LFO2 Depth",
+    "Volume",
+    "Pan"
+   ],
+   "default": "Off"
+  },
+  {
+   "key": "m9_a2",
+   "name": "M9 Amt 2",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "m9_src__open",
+   "name": "M9 Source List",
+   "options": [
+    "Closed",
+    "Open"
+   ],
+   "default": "Closed",
+   "popup_of": "m9_src",
+   "type": "enum"
+  },
+  {
+   "key": "m9_via__open",
+   "name": "M9 Via List",
+   "options": [
+    "Closed",
+    "Open"
+   ],
+   "default": "Closed",
+   "popup_of": "m9_via",
+   "type": "enum"
+  },
+  {
+   "key": "m9_mod__open",
+   "name": "M9 Modifier List",
+   "options": [
+    "Closed",
+    "Open"
+   ],
+   "default": "Closed",
+   "popup_of": "m9_mod",
+   "type": "enum"
+  },
+  {
+   "key": "m9_t1__open",
+   "name": "M9 Target 1 List",
+   "options": [
+    "Closed",
+    "Open"
+   ],
+   "default": "Closed",
+   "popup_of": "m9_t1",
+   "type": "enum"
+  },
+  {
+   "key": "m9_t2__open",
+   "name": "M9 Target 2 List",
+   "options": [
+    "Closed",
+    "Open"
+   ],
+   "default": "Closed",
+   "popup_of": "m9_t2",
+   "type": "enum"
+  },
+  {
+   "key": "m10_src",
+   "name": "M10 Source",
+   "options": [
+    "None",
+    "Env 1",
+    "Env 2",
+    "LFO 1",
+    "LFO 2",
+    "Velocity",
+    "Note",
+    "Mod Wheel",
+    "Aftertouch",
+    "Bend",
+    "Random",
+    "Alternate",
+    "Gate",
+    "Seq",
+    "Shape 1",
+    "Shape 2",
+    "Shape 3",
+    "Shape 4",
+    "X1",
+    "Y1",
+    "X2",
+    "Y2",
+    "X3",
+    "Y3",
+    "X4",
+    "Y4",
+    "Breath",
+    "Expression",
+    "Constant"
+   ],
+   "default": "None"
+  },
+  {
+   "key": "m10_via",
+   "name": "M10 Via",
+   "options": [
+    "None",
+    "Env 1",
+    "Env 2",
+    "LFO 1",
+    "LFO 2",
+    "Velocity",
+    "Note",
+    "Mod Wheel",
+    "Aftertouch",
+    "Bend",
+    "Random",
+    "Alternate",
+    "Gate",
+    "Seq",
+    "Shape 1",
+    "Shape 2",
+    "Shape 3",
+    "Shape 4",
+    "X1",
+    "Y1",
+    "X2",
+    "Y2",
+    "X3",
+    "Y3",
+    "X4",
+    "Y4",
+    "Breath",
+    "Expression",
+    "Constant"
+   ],
+   "default": "None"
+  },
+  {
+   "key": "m10_mod",
+   "name": "M10 Modifier",
+   "options": [
+    "None",
+    "Curve",
+    "Rectify",
+    "Quantize",
+    "S&H",
+    "Slew"
+   ],
+   "default": "None"
+  },
+  {
+   "key": "m10_modamt",
+   "name": "M10 Mod Amt",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "m10_t1",
+   "name": "M10 Target 1",
+   "options": [
+    "Off",
+    "Pitch",
+    "Osc1 Pitch",
+    "Osc2 Pitch",
+    "Osc1 Pos",
+    "Osc2 Pos",
+    "Osc1 Level",
+    "Osc2 Level",
+    "Osc1 Pan",
+    "Osc2 Pan",
+    "Osc1 Detune",
+    "Osc2 Detune",
+    "Sub1 Level",
+    "Sub2 Level",
+    "Noise Level",
+    "Noise Colour",
+    "F1 Cutoff",
+    "F2 Cutoff",
+    "Cutoffs",
+    "F1 Reso",
+    "F2 Reso",
+    "F1 Drive",
+    "F2 Drive",
+    "Env1 Attack",
+    "Env1 Decay",
+    "Env1 Sustain",
+    "Env1 Release",
+    "Env2 Attack",
+    "Env2 Decay",
+    "Env2 Sustain",
+    "Env2 Release",
+    "LFO1 Rate",
+    "LFO2 Rate",
+    "LFO1 Depth",
+    "LFO2 Depth",
+    "Volume",
+    "Pan"
+   ],
+   "default": "Off"
+  },
+  {
+   "key": "m10_a1",
+   "name": "M10 Amt 1",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "m10_t2",
+   "name": "M10 Target 2",
+   "options": [
+    "Off",
+    "Pitch",
+    "Osc1 Pitch",
+    "Osc2 Pitch",
+    "Osc1 Pos",
+    "Osc2 Pos",
+    "Osc1 Level",
+    "Osc2 Level",
+    "Osc1 Pan",
+    "Osc2 Pan",
+    "Osc1 Detune",
+    "Osc2 Detune",
+    "Sub1 Level",
+    "Sub2 Level",
+    "Noise Level",
+    "Noise Colour",
+    "F1 Cutoff",
+    "F2 Cutoff",
+    "Cutoffs",
+    "F1 Reso",
+    "F2 Reso",
+    "F1 Drive",
+    "F2 Drive",
+    "Env1 Attack",
+    "Env1 Decay",
+    "Env1 Sustain",
+    "Env1 Release",
+    "Env2 Attack",
+    "Env2 Decay",
+    "Env2 Sustain",
+    "Env2 Release",
+    "LFO1 Rate",
+    "LFO2 Rate",
+    "LFO1 Depth",
+    "LFO2 Depth",
+    "Volume",
+    "Pan"
+   ],
+   "default": "Off"
+  },
+  {
+   "key": "m10_a2",
+   "name": "M10 Amt 2",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "m10_src__open",
+   "name": "M10 Source List",
+   "options": [
+    "Closed",
+    "Open"
+   ],
+   "default": "Closed",
+   "popup_of": "m10_src",
+   "type": "enum"
+  },
+  {
+   "key": "m10_via__open",
+   "name": "M10 Via List",
+   "options": [
+    "Closed",
+    "Open"
+   ],
+   "default": "Closed",
+   "popup_of": "m10_via",
+   "type": "enum"
+  },
+  {
+   "key": "m10_mod__open",
+   "name": "M10 Modifier List",
+   "options": [
+    "Closed",
+    "Open"
+   ],
+   "default": "Closed",
+   "popup_of": "m10_mod",
+   "type": "enum"
+  },
+  {
+   "key": "m10_t1__open",
+   "name": "M10 Target 1 List",
+   "options": [
+    "Closed",
+    "Open"
+   ],
+   "default": "Closed",
+   "popup_of": "m10_t1",
+   "type": "enum"
+  },
+  {
+   "key": "m10_t2__open",
+   "name": "M10 Target 2 List",
+   "options": [
+    "Closed",
+    "Open"
+   ],
+   "default": "Closed",
+   "popup_of": "m10_t2",
+   "type": "enum"
+  },
+  {
+   "key": "m11_src",
+   "name": "M11 Source",
+   "options": [
+    "None",
+    "Env 1",
+    "Env 2",
+    "LFO 1",
+    "LFO 2",
+    "Velocity",
+    "Note",
+    "Mod Wheel",
+    "Aftertouch",
+    "Bend",
+    "Random",
+    "Alternate",
+    "Gate",
+    "Seq",
+    "Shape 1",
+    "Shape 2",
+    "Shape 3",
+    "Shape 4",
+    "X1",
+    "Y1",
+    "X2",
+    "Y2",
+    "X3",
+    "Y3",
+    "X4",
+    "Y4",
+    "Breath",
+    "Expression",
+    "Constant"
+   ],
+   "default": "None"
+  },
+  {
+   "key": "m11_via",
+   "name": "M11 Via",
+   "options": [
+    "None",
+    "Env 1",
+    "Env 2",
+    "LFO 1",
+    "LFO 2",
+    "Velocity",
+    "Note",
+    "Mod Wheel",
+    "Aftertouch",
+    "Bend",
+    "Random",
+    "Alternate",
+    "Gate",
+    "Seq",
+    "Shape 1",
+    "Shape 2",
+    "Shape 3",
+    "Shape 4",
+    "X1",
+    "Y1",
+    "X2",
+    "Y2",
+    "X3",
+    "Y3",
+    "X4",
+    "Y4",
+    "Breath",
+    "Expression",
+    "Constant"
+   ],
+   "default": "None"
+  },
+  {
+   "key": "m11_mod",
+   "name": "M11 Modifier",
+   "options": [
+    "None",
+    "Curve",
+    "Rectify",
+    "Quantize",
+    "S&H",
+    "Slew"
+   ],
+   "default": "None"
+  },
+  {
+   "key": "m11_modamt",
+   "name": "M11 Mod Amt",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "m11_t1",
+   "name": "M11 Target 1",
+   "options": [
+    "Off",
+    "Pitch",
+    "Osc1 Pitch",
+    "Osc2 Pitch",
+    "Osc1 Pos",
+    "Osc2 Pos",
+    "Osc1 Level",
+    "Osc2 Level",
+    "Osc1 Pan",
+    "Osc2 Pan",
+    "Osc1 Detune",
+    "Osc2 Detune",
+    "Sub1 Level",
+    "Sub2 Level",
+    "Noise Level",
+    "Noise Colour",
+    "F1 Cutoff",
+    "F2 Cutoff",
+    "Cutoffs",
+    "F1 Reso",
+    "F2 Reso",
+    "F1 Drive",
+    "F2 Drive",
+    "Env1 Attack",
+    "Env1 Decay",
+    "Env1 Sustain",
+    "Env1 Release",
+    "Env2 Attack",
+    "Env2 Decay",
+    "Env2 Sustain",
+    "Env2 Release",
+    "LFO1 Rate",
+    "LFO2 Rate",
+    "LFO1 Depth",
+    "LFO2 Depth",
+    "Volume",
+    "Pan"
+   ],
+   "default": "Off"
+  },
+  {
+   "key": "m11_a1",
+   "name": "M11 Amt 1",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "m11_t2",
+   "name": "M11 Target 2",
+   "options": [
+    "Off",
+    "Pitch",
+    "Osc1 Pitch",
+    "Osc2 Pitch",
+    "Osc1 Pos",
+    "Osc2 Pos",
+    "Osc1 Level",
+    "Osc2 Level",
+    "Osc1 Pan",
+    "Osc2 Pan",
+    "Osc1 Detune",
+    "Osc2 Detune",
+    "Sub1 Level",
+    "Sub2 Level",
+    "Noise Level",
+    "Noise Colour",
+    "F1 Cutoff",
+    "F2 Cutoff",
+    "Cutoffs",
+    "F1 Reso",
+    "F2 Reso",
+    "F1 Drive",
+    "F2 Drive",
+    "Env1 Attack",
+    "Env1 Decay",
+    "Env1 Sustain",
+    "Env1 Release",
+    "Env2 Attack",
+    "Env2 Decay",
+    "Env2 Sustain",
+    "Env2 Release",
+    "LFO1 Rate",
+    "LFO2 Rate",
+    "LFO1 Depth",
+    "LFO2 Depth",
+    "Volume",
+    "Pan"
+   ],
+   "default": "Off"
+  },
+  {
+   "key": "m11_a2",
+   "name": "M11 Amt 2",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "m11_src__open",
+   "name": "M11 Source List",
+   "options": [
+    "Closed",
+    "Open"
+   ],
+   "default": "Closed",
+   "popup_of": "m11_src",
+   "type": "enum"
+  },
+  {
+   "key": "m11_via__open",
+   "name": "M11 Via List",
+   "options": [
+    "Closed",
+    "Open"
+   ],
+   "default": "Closed",
+   "popup_of": "m11_via",
+   "type": "enum"
+  },
+  {
+   "key": "m11_mod__open",
+   "name": "M11 Modifier List",
+   "options": [
+    "Closed",
+    "Open"
+   ],
+   "default": "Closed",
+   "popup_of": "m11_mod",
+   "type": "enum"
+  },
+  {
+   "key": "m11_t1__open",
+   "name": "M11 Target 1 List",
+   "options": [
+    "Closed",
+    "Open"
+   ],
+   "default": "Closed",
+   "popup_of": "m11_t1",
+   "type": "enum"
+  },
+  {
+   "key": "m11_t2__open",
+   "name": "M11 Target 2 List",
+   "options": [
+    "Closed",
+    "Open"
+   ],
+   "default": "Closed",
+   "popup_of": "m11_t2",
+   "type": "enum"
+  },
+  {
+   "key": "m12_src",
+   "name": "M12 Source",
+   "options": [
+    "None",
+    "Env 1",
+    "Env 2",
+    "LFO 1",
+    "LFO 2",
+    "Velocity",
+    "Note",
+    "Mod Wheel",
+    "Aftertouch",
+    "Bend",
+    "Random",
+    "Alternate",
+    "Gate",
+    "Seq",
+    "Shape 1",
+    "Shape 2",
+    "Shape 3",
+    "Shape 4",
+    "X1",
+    "Y1",
+    "X2",
+    "Y2",
+    "X3",
+    "Y3",
+    "X4",
+    "Y4",
+    "Breath",
+    "Expression",
+    "Constant"
+   ],
+   "default": "None"
+  },
+  {
+   "key": "m12_via",
+   "name": "M12 Via",
+   "options": [
+    "None",
+    "Env 1",
+    "Env 2",
+    "LFO 1",
+    "LFO 2",
+    "Velocity",
+    "Note",
+    "Mod Wheel",
+    "Aftertouch",
+    "Bend",
+    "Random",
+    "Alternate",
+    "Gate",
+    "Seq",
+    "Shape 1",
+    "Shape 2",
+    "Shape 3",
+    "Shape 4",
+    "X1",
+    "Y1",
+    "X2",
+    "Y2",
+    "X3",
+    "Y3",
+    "X4",
+    "Y4",
+    "Breath",
+    "Expression",
+    "Constant"
+   ],
+   "default": "None"
+  },
+  {
+   "key": "m12_mod",
+   "name": "M12 Modifier",
+   "options": [
+    "None",
+    "Curve",
+    "Rectify",
+    "Quantize",
+    "S&H",
+    "Slew"
+   ],
+   "default": "None"
+  },
+  {
+   "key": "m12_modamt",
+   "name": "M12 Mod Amt",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "m12_t1",
+   "name": "M12 Target 1",
+   "options": [
+    "Off",
+    "Pitch",
+    "Osc1 Pitch",
+    "Osc2 Pitch",
+    "Osc1 Pos",
+    "Osc2 Pos",
+    "Osc1 Level",
+    "Osc2 Level",
+    "Osc1 Pan",
+    "Osc2 Pan",
+    "Osc1 Detune",
+    "Osc2 Detune",
+    "Sub1 Level",
+    "Sub2 Level",
+    "Noise Level",
+    "Noise Colour",
+    "F1 Cutoff",
+    "F2 Cutoff",
+    "Cutoffs",
+    "F1 Reso",
+    "F2 Reso",
+    "F1 Drive",
+    "F2 Drive",
+    "Env1 Attack",
+    "Env1 Decay",
+    "Env1 Sustain",
+    "Env1 Release",
+    "Env2 Attack",
+    "Env2 Decay",
+    "Env2 Sustain",
+    "Env2 Release",
+    "LFO1 Rate",
+    "LFO2 Rate",
+    "LFO1 Depth",
+    "LFO2 Depth",
+    "Volume",
+    "Pan"
+   ],
+   "default": "Off"
+  },
+  {
+   "key": "m12_a1",
+   "name": "M12 Amt 1",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "m12_t2",
+   "name": "M12 Target 2",
+   "options": [
+    "Off",
+    "Pitch",
+    "Osc1 Pitch",
+    "Osc2 Pitch",
+    "Osc1 Pos",
+    "Osc2 Pos",
+    "Osc1 Level",
+    "Osc2 Level",
+    "Osc1 Pan",
+    "Osc2 Pan",
+    "Osc1 Detune",
+    "Osc2 Detune",
+    "Sub1 Level",
+    "Sub2 Level",
+    "Noise Level",
+    "Noise Colour",
+    "F1 Cutoff",
+    "F2 Cutoff",
+    "Cutoffs",
+    "F1 Reso",
+    "F2 Reso",
+    "F1 Drive",
+    "F2 Drive",
+    "Env1 Attack",
+    "Env1 Decay",
+    "Env1 Sustain",
+    "Env1 Release",
+    "Env2 Attack",
+    "Env2 Decay",
+    "Env2 Sustain",
+    "Env2 Release",
+    "LFO1 Rate",
+    "LFO2 Rate",
+    "LFO1 Depth",
+    "LFO2 Depth",
+    "Volume",
+    "Pan"
+   ],
+   "default": "Off"
+  },
+  {
+   "key": "m12_a2",
+   "name": "M12 Amt 2",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "m12_src__open",
+   "name": "M12 Source List",
+   "options": [
+    "Closed",
+    "Open"
+   ],
+   "default": "Closed",
+   "popup_of": "m12_src",
+   "type": "enum"
+  },
+  {
+   "key": "m12_via__open",
+   "name": "M12 Via List",
+   "options": [
+    "Closed",
+    "Open"
+   ],
+   "default": "Closed",
+   "popup_of": "m12_via",
+   "type": "enum"
+  },
+  {
+   "key": "m12_mod__open",
+   "name": "M12 Modifier List",
+   "options": [
+    "Closed",
+    "Open"
+   ],
+   "default": "Closed",
+   "popup_of": "m12_mod",
+   "type": "enum"
+  },
+  {
+   "key": "m12_t1__open",
+   "name": "M12 Target 1 List",
+   "options": [
+    "Closed",
+    "Open"
+   ],
+   "default": "Closed",
+   "popup_of": "m12_t1",
+   "type": "enum"
+  },
+  {
+   "key": "m12_t2__open",
+   "name": "M12 Target 2 List",
+   "options": [
+    "Closed",
+    "Open"
+   ],
+   "default": "Closed",
+   "popup_of": "m12_t2",
+   "type": "enum"
+  },
+  {
+   "key": "seq_mode",
+   "name": "Arp/Seq Mode",
+   "options": [
+    "Off",
+    "Arp",
+    "Seq"
+   ],
+   "default": "Off"
+  },
+  {
+   "key": "arp_dir",
+   "name": "Arp Direction",
+   "options": [
+    "Up",
+    "Down",
+    "Up/Down",
+    "Down/Up",
+    "Played",
+    "Random",
+    "Chord"
+   ],
+   "default": "Up"
+  },
+  {
+   "key": "arp_dir__open",
+   "name": "Arp Direction List",
+   "options": [
+    "Closed",
+    "Open"
+   ],
+   "default": "Closed",
+   "popup_of": "arp_dir",
+   "type": "enum"
+  },
+  {
+   "key": "arp_oct",
+   "name": "Arp Octaves",
+   "min": 0,
+   "max": 1,
+   "default": 0.0,
+   "display": "string"
+  },
+  {
+   "key": "clk_rate",
+   "name": "Arp/Seq Rate",
+   "options": [
+    "8 bars",
+    "4 bars",
+    "2 bars",
+    "1 bar",
+    "1/2",
+    "1/2T",
+    "1/4",
+    "1/4T",
+    "1/4.",
+    "1/8",
+    "1/8T",
+    "1/8.",
+    "1/16",
+    "1/16T",
+    "1/16.",
+    "1/32",
+    "1/32T"
+   ],
+   "default": "1/16"
+  },
+  {
+   "key": "clk_rate__open",
+   "name": "Arp/Seq Rate List",
+   "options": [
+    "Closed",
+    "Open"
+   ],
+   "default": "Closed",
+   "popup_of": "clk_rate",
+   "type": "enum"
+  },
+  {
+   "key": "clk_gate",
+   "name": "Arp/Seq Gate",
+   "min": 0,
+   "max": 1,
+   "default": 0.473684,
+   "display": "string"
+  },
+  {
+   "key": "clk_swing",
+   "name": "Swing",
+   "min": 0,
+   "max": 1,
+   "default": 0.0,
+   "display": "string"
+  },
+  {
+   "key": "arp_latch",
+   "name": "Arp Latch",
+   "options": [
+    "Off",
+    "Latch"
+   ],
+   "default": "Off"
+  },
+  {
+   "key": "arp_pattern",
+   "name": "Arp Pattern",
+   "options": [
+    "Off",
+    "Steps"
+   ],
+   "default": "Off"
+  },
+  {
+   "key": "seq_steps",
+   "name": "Seq Steps",
+   "min": 0,
+   "max": 1,
+   "default": 1.0,
+   "display": "string"
+  },
+  {
+   "key": "seq_rec",
+   "name": "Seq Record",
+   "options": [
+    "Off",
+    "Rec"
+   ],
+   "default": "Off"
+  },
+  {
+   "key": "s1_note",
+   "name": "Note 1",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "s2_note",
+   "name": "Note 2",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "s3_note",
+   "name": "Note 3",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "s4_note",
+   "name": "Note 4",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "s5_note",
+   "name": "Note 5",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "s6_note",
+   "name": "Note 6",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "s7_note",
+   "name": "Note 7",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "s8_note",
+   "name": "Note 8",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "s9_note",
+   "name": "Note 9",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "s10_note",
+   "name": "Note 10",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "s11_note",
+   "name": "Note 11",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "s12_note",
+   "name": "Note 12",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "s13_note",
+   "name": "Note 13",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "s14_note",
+   "name": "Note 14",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "s15_note",
+   "name": "Note 15",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "s16_note",
+   "name": "Note 16",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "s1_vel",
+   "name": "Vel 1",
+   "min": 0,
+   "max": 1,
+   "default": 0.787402,
+   "display": "string"
+  },
+  {
+   "key": "s2_vel",
+   "name": "Vel 2",
+   "min": 0,
+   "max": 1,
+   "default": 0.787402,
+   "display": "string"
+  },
+  {
+   "key": "s3_vel",
+   "name": "Vel 3",
+   "min": 0,
+   "max": 1,
+   "default": 0.787402,
+   "display": "string"
+  },
+  {
+   "key": "s4_vel",
+   "name": "Vel 4",
+   "min": 0,
+   "max": 1,
+   "default": 0.787402,
+   "display": "string"
+  },
+  {
+   "key": "s5_vel",
+   "name": "Vel 5",
+   "min": 0,
+   "max": 1,
+   "default": 0.787402,
+   "display": "string"
+  },
+  {
+   "key": "s6_vel",
+   "name": "Vel 6",
+   "min": 0,
+   "max": 1,
+   "default": 0.787402,
+   "display": "string"
+  },
+  {
+   "key": "s7_vel",
+   "name": "Vel 7",
+   "min": 0,
+   "max": 1,
+   "default": 0.787402,
+   "display": "string"
+  },
+  {
+   "key": "s8_vel",
+   "name": "Vel 8",
+   "min": 0,
+   "max": 1,
+   "default": 0.787402,
+   "display": "string"
+  },
+  {
+   "key": "s9_vel",
+   "name": "Vel 9",
+   "min": 0,
+   "max": 1,
+   "default": 0.787402,
+   "display": "string"
+  },
+  {
+   "key": "s10_vel",
+   "name": "Vel 10",
+   "min": 0,
+   "max": 1,
+   "default": 0.787402,
+   "display": "string"
+  },
+  {
+   "key": "s11_vel",
+   "name": "Vel 11",
+   "min": 0,
+   "max": 1,
+   "default": 0.787402,
+   "display": "string"
+  },
+  {
+   "key": "s12_vel",
+   "name": "Vel 12",
+   "min": 0,
+   "max": 1,
+   "default": 0.787402,
+   "display": "string"
+  },
+  {
+   "key": "s13_vel",
+   "name": "Vel 13",
+   "min": 0,
+   "max": 1,
+   "default": 0.787402,
+   "display": "string"
+  },
+  {
+   "key": "s14_vel",
+   "name": "Vel 14",
+   "min": 0,
+   "max": 1,
+   "default": 0.787402,
+   "display": "string"
+  },
+  {
+   "key": "s15_vel",
+   "name": "Vel 15",
+   "min": 0,
+   "max": 1,
+   "default": 0.787402,
+   "display": "string"
+  },
+  {
+   "key": "s16_vel",
+   "name": "Vel 16",
+   "min": 0,
+   "max": 1,
+   "default": 0.787402,
+   "display": "string"
+  },
+  {
+   "key": "s1_mod",
+   "name": "Mod 1",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "s2_mod",
+   "name": "Mod 2",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "s3_mod",
+   "name": "Mod 3",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "s4_mod",
+   "name": "Mod 4",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "s5_mod",
+   "name": "Mod 5",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "s6_mod",
+   "name": "Mod 6",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "s7_mod",
+   "name": "Mod 7",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "s8_mod",
+   "name": "Mod 8",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "s9_mod",
+   "name": "Mod 9",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "s10_mod",
+   "name": "Mod 10",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "s11_mod",
+   "name": "Mod 11",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "s12_mod",
+   "name": "Mod 12",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "s13_mod",
+   "name": "Mod 13",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "s14_mod",
+   "name": "Mod 14",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "s15_mod",
+   "name": "Mod 15",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "s16_mod",
+   "name": "Mod 16",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "sh_rate",
+   "name": "Shape Rate",
+   "options": [
+    "8 bars",
+    "4 bars",
+    "2 bars",
+    "1 bar",
+    "1/2",
+    "1/2T",
+    "1/4",
+    "1/4T",
+    "1/4.",
+    "1/8",
+    "1/8T",
+    "1/8.",
+    "1/16",
+    "1/16T",
+    "1/16.",
+    "1/32",
+    "1/32T"
+   ],
+   "default": "1/8"
+  },
+  {
+   "key": "sh_rate__open",
+   "name": "Shape Rate List",
+   "options": [
+    "Closed",
+    "Open"
+   ],
+   "default": "Closed",
+   "popup_of": "sh_rate",
+   "type": "enum"
+  },
+  {
+   "key": "sh_steps",
+   "name": "Shape Steps",
+   "min": 0,
+   "max": 1,
+   "default": 1.0,
+   "display": "string"
+  },
+  {
+   "key": "sh1_mode",
+   "name": "Shape 1 Mode",
+   "options": [
+    "Step",
+    "Ramp",
+    "Smooth"
+   ],
+   "default": "Step"
+  },
+  {
+   "key": "sh1_1",
+   "name": "Sh1 Step 1",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "sh1_2",
+   "name": "Sh1 Step 2",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "sh1_3",
+   "name": "Sh1 Step 3",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "sh1_4",
+   "name": "Sh1 Step 4",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "sh1_5",
+   "name": "Sh1 Step 5",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "sh1_6",
+   "name": "Sh1 Step 6",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "sh1_7",
+   "name": "Sh1 Step 7",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "sh1_8",
+   "name": "Sh1 Step 8",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "sh2_mode",
+   "name": "Shape 2 Mode",
+   "options": [
+    "Step",
+    "Ramp",
+    "Smooth"
+   ],
+   "default": "Step"
+  },
+  {
+   "key": "sh2_1",
+   "name": "Sh2 Step 1",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "sh2_2",
+   "name": "Sh2 Step 2",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "sh2_3",
+   "name": "Sh2 Step 3",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "sh2_4",
+   "name": "Sh2 Step 4",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "sh2_5",
+   "name": "Sh2 Step 5",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "sh2_6",
+   "name": "Sh2 Step 6",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "sh2_7",
+   "name": "Sh2 Step 7",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "sh2_8",
+   "name": "Sh2 Step 8",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "sh3_mode",
+   "name": "Shape 3 Mode",
+   "options": [
+    "Step",
+    "Ramp",
+    "Smooth"
+   ],
+   "default": "Step"
+  },
+  {
+   "key": "sh3_1",
+   "name": "Sh3 Step 1",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "sh3_2",
+   "name": "Sh3 Step 2",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "sh3_3",
+   "name": "Sh3 Step 3",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "sh3_4",
+   "name": "Sh3 Step 4",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "sh3_5",
+   "name": "Sh3 Step 5",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "sh3_6",
+   "name": "Sh3 Step 6",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "sh3_7",
+   "name": "Sh3 Step 7",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "sh3_8",
+   "name": "Sh3 Step 8",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "sh4_mode",
+   "name": "Shape 4 Mode",
+   "options": [
+    "Step",
+    "Ramp",
+    "Smooth"
+   ],
+   "default": "Step"
+  },
+  {
+   "key": "sh4_1",
+   "name": "Sh4 Step 1",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "sh4_2",
+   "name": "Sh4 Step 2",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "sh4_3",
+   "name": "Sh4 Step 3",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "sh4_4",
+   "name": "Sh4 Step 4",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "sh4_5",
+   "name": "Sh4 Step 5",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "sh4_6",
+   "name": "Sh4 Step 6",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "sh4_7",
+   "name": "Sh4 Step 7",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "sh4_8",
+   "name": "Sh4 Step 8",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "xy1_x",
+   "name": "XY Pad X1",
+   "min": 0,
+   "max": 1,
+   "default": 0.0,
+   "display": "string"
+  },
+  {
+   "key": "xy1_y",
+   "name": "XY Pad Y1",
+   "min": 0,
+   "max": 1,
+   "default": 0.0,
+   "display": "string"
+  },
+  {
+   "key": "xy2_x",
+   "name": "XY Pad X2",
+   "min": 0,
+   "max": 1,
+   "default": 0.0,
+   "display": "string"
+  },
+  {
+   "key": "xy2_y",
+   "name": "XY Pad Y2",
+   "min": 0,
+   "max": 1,
+   "default": 0.0,
+   "display": "string"
+  },
+  {
+   "key": "xy3_x",
+   "name": "XY Pad X3",
+   "min": 0,
+   "max": 1,
+   "default": 0.0,
+   "display": "string"
+  },
+  {
+   "key": "xy3_y",
+   "name": "XY Pad Y3",
+   "min": 0,
+   "max": 1,
+   "default": 0.0,
+   "display": "string"
+  },
+  {
+   "key": "xy4_x",
+   "name": "XY Pad X4",
+   "min": 0,
+   "max": 1,
+   "default": 0.0,
+   "display": "string"
+  },
+  {
+   "key": "xy4_y",
+   "name": "XY Pad Y4",
+   "min": 0,
+   "max": 1,
+   "default": 0.0,
+   "display": "string"
+  },
+  {
+   "key": "xy_auto",
+   "name": "XY Auto-Assign",
+   "min": 0,
+   "max": 1,
+   "momentary": true,
+   "type": "trigger"
+  },
+  {
+   "key": "vmode",
+   "name": "Voice Mode",
+   "options": [
+    "Poly",
+    "Duo",
+    "Mono",
+    "Legato"
+   ],
+   "default": "Poly"
+  },
+  {
+   "key": "steal",
+   "name": "Voice Steal",
+   "options": [
+    "Oldest",
+    "Quietest",
+    "Keep low",
+    "Keep high"
+   ],
+   "default": "Oldest"
+  },
+  {
+   "key": "same_note",
+   "name": "Same Note",
+   "options": [
+    "Retrigger",
+    "New voice"
+   ],
+   "default": "Retrigger"
+  },
+  {
+   "key": "glide_mode",
+   "name": "Glide Mode",
+   "options": [
+    "Off",
+    "Always",
+    "Legato"
+   ],
+   "default": "Off"
+  },
+  {
+   "key": "glide_type",
+   "name": "Glide Type",
+   "options": [
+    "Time",
+    "Rate"
+   ],
+   "default": "Time"
+  },
+  {
+   "key": "glide",
+   "name": "Glide Time",
+   "min": 0,
+   "max": 1,
+   "default": 0.475772,
+   "display": "string"
+  },
+  {
+   "key": "bend_up",
+   "name": "Bend Up",
+   "min": 0,
+   "max": 1,
+   "default": 0.083333,
+   "display": "string"
+  },
+  {
+   "key": "bend_dn",
+   "name": "Bend Down",
+   "min": 0,
+   "max": 1,
+   "default": 0.083333,
+   "display": "string"
+  },
+  {
+   "key": "vel_curve",
+   "name": "Vel Curve",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "tuning",
+   "name": "Tuning",
+   "min": 0,
+   "max": 1,
+   "display": "string",
+   "type": "stepper"
+  },
+  {
+   "key": "tuning_prev",
+   "name": "Tuning Prev",
+   "min": 0,
+   "max": 1,
+   "momentary": true,
+   "type": "trigger"
+  },
+  {
+   "key": "tuning_next",
+   "name": "Tuning Next",
+   "min": 0,
+   "max": 1,
+   "momentary": true,
+   "type": "trigger"
+  },
+  {
+   "key": "preset",
+   "name": "Preset",
+   "min": 0,
+   "max": 1,
+   "display": "string",
+   "type": "stepper"
+  },
+  {
+   "key": "preset_prev",
+   "name": "Preset Prev",
+   "min": 0,
+   "max": 1,
+   "momentary": true,
+   "type": "trigger"
+  },
+  {
+   "key": "preset_next",
+   "name": "Preset Next",
+   "min": 0,
+   "max": 1,
+   "momentary": true,
+   "type": "trigger"
+  },
+  {
+   "key": "pre_save",
+   "name": "Save Preset",
+   "min": 0,
+   "max": 1,
+   "momentary": true,
+   "type": "trigger"
+  },
+  {
+   "key": "pre_init",
+   "name": "Init Patch",
+   "min": 0,
+   "max": 1,
+   "momentary": true,
+   "type": "trigger"
+  },
+  {
+   "key": "pre_rand",
+   "name": "Randomize",
+   "min": 0,
+   "max": 1,
+   "momentary": true,
+   "type": "trigger"
+  },
+  {
+   "key": "rand_amt",
+   "name": "Rand Amount",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "br_target",
+   "name": "Browse For",
+   "options": [
+    "OSC 1",
+    "OSC 2",
+    "PRESETS"
+   ],
+   "default": "OSC 1"
+  },
+  {
+   "key": "cat_1",
+   "name": "Category 1",
+   "options": [
+    "-",
+    "On"
+   ],
+   "default": "-",
+   "display": "string"
+  },
+  {
+   "key": "cat_2",
+   "name": "Category 2",
+   "options": [
+    "-",
+    "On"
+   ],
+   "default": "-",
+   "display": "string"
+  },
+  {
+   "key": "cat_3",
+   "name": "Category 3",
+   "options": [
+    "-",
+    "On"
+   ],
+   "default": "-",
+   "display": "string"
+  },
+  {
+   "key": "cat_4",
+   "name": "Category 4",
+   "options": [
+    "-",
+    "On"
+   ],
+   "default": "-",
+   "display": "string"
+  },
+  {
+   "key": "cat_5",
+   "name": "Category 5",
+   "options": [
+    "-",
+    "On"
+   ],
+   "default": "-",
+   "display": "string"
+  },
+  {
+   "key": "cat_6",
+   "name": "Category 6",
+   "options": [
+    "-",
+    "On"
+   ],
+   "default": "-",
+   "display": "string"
+  },
+  {
+   "key": "cat_7",
+   "name": "Category 7",
+   "options": [
+    "-",
+    "On"
+   ],
+   "default": "-",
+   "display": "string"
+  },
+  {
+   "key": "cat_8",
+   "name": "Category 8",
+   "options": [
+    "-",
+    "On"
+   ],
+   "default": "-",
+   "display": "string"
+  },
+  {
+   "key": "cat_9",
+   "name": "Category 9",
+   "options": [
+    "-",
+    "On"
+   ],
+   "default": "-",
+   "display": "string"
+  },
+  {
+   "key": "cat_10",
+   "name": "Category 10",
+   "options": [
+    "-",
+    "On"
+   ],
+   "default": "-",
+   "display": "string"
+  },
+  {
+   "key": "cat_11",
+   "name": "Category 11",
+   "options": [
+    "-",
+    "On"
+   ],
+   "default": "-",
+   "display": "string"
+  },
+  {
+   "key": "cat_12",
+   "name": "Category 12",
+   "options": [
+    "-",
+    "On"
+   ],
+   "default": "-",
+   "display": "string"
+  },
+  {
+   "key": "cat_13",
+   "name": "Category 13",
+   "options": [
+    "-",
+    "On"
+   ],
+   "default": "-",
+   "display": "string"
+  },
+  {
+   "key": "cat_14",
+   "name": "Category 14",
+   "options": [
+    "-",
+    "On"
+   ],
+   "default": "-",
+   "display": "string"
+  },
+  {
+   "key": "cat_15",
+   "name": "Category 15",
+   "options": [
+    "-",
+    "On"
+   ],
+   "default": "-",
+   "display": "string"
+  },
+  {
+   "key": "cat_16",
+   "name": "Category 16",
+   "options": [
+    "-",
+    "On"
+   ],
+   "default": "-",
+   "display": "string"
+  },
+  {
+   "key": "cat_prev",
+   "name": "Categories Prev",
+   "min": 0,
+   "max": 1,
+   "momentary": true,
+   "type": "trigger"
+  },
+  {
+   "key": "cat_next",
+   "name": "Categories Next",
+   "min": 0,
+   "max": 1,
+   "momentary": true,
+   "type": "trigger"
+  },
+  {
+   "key": "tbl_1",
+   "name": "Item 1",
+   "options": [
+    "-",
+    "On"
+   ],
+   "default": "-",
+   "display": "string"
+  },
+  {
+   "key": "tbl_2",
+   "name": "Item 2",
+   "options": [
+    "-",
+    "On"
+   ],
+   "default": "-",
+   "display": "string"
+  },
+  {
+   "key": "tbl_3",
+   "name": "Item 3",
+   "options": [
+    "-",
+    "On"
+   ],
+   "default": "-",
+   "display": "string"
+  },
+  {
+   "key": "tbl_4",
+   "name": "Item 4",
+   "options": [
+    "-",
+    "On"
+   ],
+   "default": "-",
+   "display": "string"
+  },
+  {
+   "key": "tbl_5",
+   "name": "Item 5",
+   "options": [
+    "-",
+    "On"
+   ],
+   "default": "-",
+   "display": "string"
+  },
+  {
+   "key": "tbl_6",
+   "name": "Item 6",
+   "options": [
+    "-",
+    "On"
+   ],
+   "default": "-",
+   "display": "string"
+  },
+  {
+   "key": "tbl_7",
+   "name": "Item 7",
+   "options": [
+    "-",
+    "On"
+   ],
+   "default": "-",
+   "display": "string"
+  },
+  {
+   "key": "tbl_8",
+   "name": "Item 8",
+   "options": [
+    "-",
+    "On"
+   ],
+   "default": "-",
+   "display": "string"
+  },
+  {
+   "key": "tbl_9",
+   "name": "Item 9",
+   "options": [
+    "-",
+    "On"
+   ],
+   "default": "-",
+   "display": "string"
+  },
+  {
+   "key": "tbl_10",
+   "name": "Item 10",
+   "options": [
+    "-",
+    "On"
+   ],
+   "default": "-",
+   "display": "string"
+  },
+  {
+   "key": "tbl_11",
+   "name": "Item 11",
+   "options": [
+    "-",
+    "On"
+   ],
+   "default": "-",
+   "display": "string"
+  },
+  {
+   "key": "tbl_12",
+   "name": "Item 12",
+   "options": [
+    "-",
+    "On"
+   ],
+   "default": "-",
+   "display": "string"
+  },
+  {
+   "key": "tbl_13",
+   "name": "Item 13",
+   "options": [
+    "-",
+    "On"
+   ],
+   "default": "-",
+   "display": "string"
+  },
+  {
+   "key": "tbl_14",
+   "name": "Item 14",
+   "options": [
+    "-",
+    "On"
+   ],
+   "default": "-",
+   "display": "string"
+  },
+  {
+   "key": "tbl_15",
+   "name": "Item 15",
+   "options": [
+    "-",
+    "On"
+   ],
+   "default": "-",
+   "display": "string"
+  },
+  {
+   "key": "tbl_16",
+   "name": "Item 16",
+   "options": [
+    "-",
+    "On"
+   ],
+   "default": "-",
+   "display": "string"
+  },
+  {
+   "key": "tbl_17",
+   "name": "Item 17",
+   "options": [
+    "-",
+    "On"
+   ],
+   "default": "-",
+   "display": "string"
+  },
+  {
+   "key": "tbl_18",
+   "name": "Item 18",
+   "options": [
+    "-",
+    "On"
+   ],
+   "default": "-",
+   "display": "string"
+  },
+  {
+   "key": "tbl_19",
+   "name": "Item 19",
+   "options": [
+    "-",
+    "On"
+   ],
+   "default": "-",
+   "display": "string"
+  },
+  {
+   "key": "tbl_20",
+   "name": "Item 20",
+   "options": [
+    "-",
+    "On"
+   ],
+   "default": "-",
+   "display": "string"
+  },
+  {
+   "key": "tbl_21",
+   "name": "Item 21",
+   "options": [
+    "-",
+    "On"
+   ],
+   "default": "-",
+   "display": "string"
+  },
+  {
+   "key": "tbl_22",
+   "name": "Item 22",
+   "options": [
+    "-",
+    "On"
+   ],
+   "default": "-",
+   "display": "string"
+  },
+  {
+   "key": "tbl_23",
+   "name": "Item 23",
+   "options": [
+    "-",
+    "On"
+   ],
+   "default": "-",
+   "display": "string"
+  },
+  {
+   "key": "tbl_24",
+   "name": "Item 24",
+   "options": [
+    "-",
+    "On"
+   ],
+   "default": "-",
+   "display": "string"
+  },
+  {
+   "key": "tbl_prev",
+   "name": "Items Prev",
+   "min": 0,
+   "max": 1,
+   "momentary": true,
+   "type": "trigger"
+  },
+  {
+   "key": "tbl_next",
+   "name": "Items Next",
+   "min": 0,
+   "max": 1,
+   "momentary": true,
+   "type": "trigger"
+  },
+  {
+   "key": "tbl_page",
+   "name": "Items Page",
+   "min": 0,
+   "max": 0,
+   "display": "string",
+   "type": "readout"
+  },
+  {
+   "key": "br_now",
+   "name": "Loaded",
+   "min": 0,
+   "max": 0,
+   "display": "string",
+   "type": "readout"
+  },
+  {
+   "key": "fav",
+   "name": "Favorite",
+   "options": [
+    "Off",
+    "On"
+   ],
+   "default": "Off"
+  },
+  {
+   "key": "rnd",
+   "name": "Random Pick",
+   "min": 0,
+   "max": 1,
+   "momentary": true,
+   "type": "trigger"
+  },
+  {
+   "key": "copy",
+   "name": "Copy 1 > 2",
+   "min": 0,
+   "max": 1,
+   "momentary": true,
+   "type": "trigger"
+  },
+  {
+   "key": "swap",
+   "name": "Swap 1 <> 2",
+   "min": 0,
+   "max": 1,
+   "momentary": true,
+   "type": "trigger"
+  },
+  {
+   "key": "o1_wv01",
+   "name": "O1 Wave 01",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "o1_wv02",
+   "name": "O1 Wave 02",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "o1_wv03",
+   "name": "O1 Wave 03",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "o1_wv04",
+   "name": "O1 Wave 04",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "o1_wv05",
+   "name": "O1 Wave 05",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "o1_wv06",
+   "name": "O1 Wave 06",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "o1_wv07",
+   "name": "O1 Wave 07",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "o1_wv08",
+   "name": "O1 Wave 08",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "o1_wv09",
+   "name": "O1 Wave 09",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "o1_wv10",
+   "name": "O1 Wave 10",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "o1_wv11",
+   "name": "O1 Wave 11",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "o1_wv12",
+   "name": "O1 Wave 12",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "o1_wv13",
+   "name": "O1 Wave 13",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "o1_wv14",
+   "name": "O1 Wave 14",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "o1_wv15",
+   "name": "O1 Wave 15",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "o1_wv16",
+   "name": "O1 Wave 16",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "o1_wv17",
+   "name": "O1 Wave 17",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "o1_wv18",
+   "name": "O1 Wave 18",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "o1_wv19",
+   "name": "O1 Wave 19",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "o1_wv20",
+   "name": "O1 Wave 20",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "o1_wv21",
+   "name": "O1 Wave 21",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "o1_wv22",
+   "name": "O1 Wave 22",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "o1_wv23",
+   "name": "O1 Wave 23",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "o1_wv24",
+   "name": "O1 Wave 24",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "o1_wv25",
+   "name": "O1 Wave 25",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "o1_wv26",
+   "name": "O1 Wave 26",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "o1_wv27",
+   "name": "O1 Wave 27",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "o1_wv28",
+   "name": "O1 Wave 28",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "o1_wv29",
+   "name": "O1 Wave 29",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "o1_wv30",
+   "name": "O1 Wave 30",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "o1_wv31",
+   "name": "O1 Wave 31",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "o1_wv32",
+   "name": "O1 Wave 32",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "o1_wv33",
+   "name": "O1 Wave 33",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "o1_wv34",
+   "name": "O1 Wave 34",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "o1_wv35",
+   "name": "O1 Wave 35",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "o1_wv36",
+   "name": "O1 Wave 36",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "o1_wv37",
+   "name": "O1 Wave 37",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "o1_wv38",
+   "name": "O1 Wave 38",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "o1_wv39",
+   "name": "O1 Wave 39",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "o1_wv40",
+   "name": "O1 Wave 40",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "o1_wv41",
+   "name": "O1 Wave 41",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "o1_wv42",
+   "name": "O1 Wave 42",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "o1_wv43",
+   "name": "O1 Wave 43",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "o1_wv44",
+   "name": "O1 Wave 44",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "o1_wv45",
+   "name": "O1 Wave 45",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "o1_wv46",
+   "name": "O1 Wave 46",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "o1_wv47",
+   "name": "O1 Wave 47",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "o1_wv48",
+   "name": "O1 Wave 48",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "o2_wv01",
+   "name": "O2 Wave 01",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "o2_wv02",
+   "name": "O2 Wave 02",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "o2_wv03",
+   "name": "O2 Wave 03",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "o2_wv04",
+   "name": "O2 Wave 04",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "o2_wv05",
+   "name": "O2 Wave 05",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "o2_wv06",
+   "name": "O2 Wave 06",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "o2_wv07",
+   "name": "O2 Wave 07",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "o2_wv08",
+   "name": "O2 Wave 08",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "o2_wv09",
+   "name": "O2 Wave 09",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "o2_wv10",
+   "name": "O2 Wave 10",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "o2_wv11",
+   "name": "O2 Wave 11",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "o2_wv12",
+   "name": "O2 Wave 12",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "o2_wv13",
+   "name": "O2 Wave 13",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "o2_wv14",
+   "name": "O2 Wave 14",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "o2_wv15",
+   "name": "O2 Wave 15",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "o2_wv16",
+   "name": "O2 Wave 16",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "o2_wv17",
+   "name": "O2 Wave 17",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "o2_wv18",
+   "name": "O2 Wave 18",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "o2_wv19",
+   "name": "O2 Wave 19",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "o2_wv20",
+   "name": "O2 Wave 20",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "o2_wv21",
+   "name": "O2 Wave 21",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "o2_wv22",
+   "name": "O2 Wave 22",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "o2_wv23",
+   "name": "O2 Wave 23",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "o2_wv24",
+   "name": "O2 Wave 24",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "o2_wv25",
+   "name": "O2 Wave 25",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "o2_wv26",
+   "name": "O2 Wave 26",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "o2_wv27",
+   "name": "O2 Wave 27",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "o2_wv28",
+   "name": "O2 Wave 28",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "o2_wv29",
+   "name": "O2 Wave 29",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "o2_wv30",
+   "name": "O2 Wave 30",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "o2_wv31",
+   "name": "O2 Wave 31",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "o2_wv32",
+   "name": "O2 Wave 32",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "o2_wv33",
+   "name": "O2 Wave 33",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "o2_wv34",
+   "name": "O2 Wave 34",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "o2_wv35",
+   "name": "O2 Wave 35",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "o2_wv36",
+   "name": "O2 Wave 36",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "o2_wv37",
+   "name": "O2 Wave 37",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "o2_wv38",
+   "name": "O2 Wave 38",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "o2_wv39",
+   "name": "O2 Wave 39",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "o2_wv40",
+   "name": "O2 Wave 40",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "o2_wv41",
+   "name": "O2 Wave 41",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "o2_wv42",
+   "name": "O2 Wave 42",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "o2_wv43",
+   "name": "O2 Wave 43",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "o2_wv44",
+   "name": "O2 Wave 44",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "o2_wv45",
+   "name": "O2 Wave 45",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "o2_wv46",
+   "name": "O2 Wave 46",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "o2_wv47",
+   "name": "O2 Wave 47",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "o2_wv48",
+   "name": "O2 Wave 48",
+   "min": 0,
+   "max": 1,
+   "default": 0.5,
+   "display": "string"
+  }
+ ]
+}
