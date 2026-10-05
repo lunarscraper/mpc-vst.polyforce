@@ -1,0 +1,60 @@
+name: build
+
+on:
+  push:
+    branches: ["**"]
+    tags: ["v*"]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: Test suite (x86, ASan/UBSan)
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - run: make test
+
+  device:
+    name: Device build (armhf, glibc 2.31, PGO), package, catalog check
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: write   # the release, on a tag
+    steps:
+      - uses: actions/checkout@v4
+      # What doesn't depend on the CPU is built here, natively: the generated sources and the skin. The ARM
+      # container then needs nothing beyond its own compiler (bullseye's package mirrors are going to the archive).
+      - name: Generated sources and skin
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq --no-install-recommends python3-pil
+          make surface skin
+      - uses: docker/setup-qemu-action@v3
+        with:
+          platforms: arm
+      - name: Device build and the suite on ARM, in arm32v7/gcc:11-bullseye
+        run: >-
+          docker run --rm --platform linux/arm/v7 -v "$PWD:/w" -w /w arm32v7/gcc:11-bullseye
+          make ARM_PREFIX= ARM_RUN= PGO=1 arm-plugin test-arm-pgo
+      - name: Package
+        run: |
+          case "$GITHUB_REF" in refs/tags/v*) v="${GITHUB_REF_NAME#v}"; version="PLUGIN_VERSION=${v%%-*}" ;; *) version= ;; esac
+          make PGO=1 $version plugin-package   # the .so above is up to date; a rebuild here would fail loudly (no ARM compiler)
+      - name: Catalog check
+        run: >-
+          python3 third_party/mpc-vst-plugins/tools/catalog_check.py dist/*-mpc-armv7.zip
+          --catalog --expect-id polyforce --expect-repo Devko/PolyForce
+      - uses: actions/upload-artifact@v4
+        with:
+          name: PolyForce-mpc-armv7
+          path: dist/*-mpc-armv7.zip
+          if-no-files-found: error
+      - name: Release
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: dist/*-mpc-armv7.zip
+          prerelease: ${{ contains(github.ref_name, '-') }}
+          generate_release_notes: true
