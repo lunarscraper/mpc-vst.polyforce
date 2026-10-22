@@ -20,6 +20,9 @@ Status: ✅ done · 🔜 next · ⬜ planned · 💤 deferred
   [interface](INTERFACE.md#design) notes).
 - ✅ **Release build** in CI against glibc 2.31, profile-guided, passing the plugin catalog's check;
   device bench of it: 11.1% p99 at 8 × 8 ([measurements](PERFORMANCE.md#device-measurements)).
+- 🔜 **MPC's preset list** (VST2 programs: the factory set and the user's preset files, short
+  category tags, a project's state protected from a program number restored on top of it): on the
+  device, check that the list shows and switches, and how MPC handles ~200 entries.
 - 🔜 **On the device:** play every page with Q-Links, save and reload a project, the large-table
   bench run (`make bench-device WAVETABLES=<folder>`).
 - 🔜 **Milestone 1 device checks:** a large library (379 tables) reachable, CPU ≤ 15% at 8 × 8,

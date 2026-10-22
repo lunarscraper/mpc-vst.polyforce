@@ -47,11 +47,12 @@ namespace vst {
 constexpr int32_t kMagic = 0x56737450;   // 'VstP' (the forum snippet's value is wrong)
 
 enum : int32_t {
-    effOpen = 0, effClose = 1, effGetProgram = 3, effGetProgramName = 5, effGetParamLabel = 6, effGetParamDisplay = 7, effGetParamName = 8,
+    effOpen = 0, effClose = 1, effSetProgram = 2, effGetProgram = 3, effSetProgramName = 4, effGetProgramName = 5, effGetParamLabel = 6, effGetParamDisplay = 7, effGetParamName = 8,
     effSetSampleRate = 10, effSetBlockSize = 11, effMainsChanged = 12, effGetChunk = 23,
     effSetChunk = 24, effProcessEvents = 25, effCanBeAutomated = 26, effGetPlugCategory = 35,
     effGetEffectName = 45, effGetVendorString = 47, effGetProductString = 48,
     effGetVendorVersion = 49, effCanDo = 51, effGetVstVersion = 58, effStopProcess = 72,
+    effGetProgramNameIndexed = 29, effBeginSetProgram = 67, effEndSetProgram = 68,
 };
 
 enum : int32_t {

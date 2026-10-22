@@ -48,6 +48,7 @@ public:
     void        setTuning(const std::string& key, bool now);
     std::string tuningKey() const;
     std::string presetKey() const;         // the preset this sound came from ("" = none)
+    void        selectPreset(const std::string& key) { loadPreset(key); }   // MPC's preset list (VST programs)
     void        setPresetKey(const std::string& key);
 
     // --- any thread --------------------------------------------------------------

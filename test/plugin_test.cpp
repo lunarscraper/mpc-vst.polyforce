@@ -368,6 +368,8 @@ int main() {
     patchTests();
     std::printf("== review fixes\n");
     reviewTests();
+    std::printf("== MPC preset list\n");
+    programTests();
     std::printf("== imported wavetable\n");
     testImportedTable();
     std::error_code ec;

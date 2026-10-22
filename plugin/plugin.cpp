@@ -27,12 +27,16 @@
 
 #include <algorithm>
 #include <atomic>
+#include <cctype>
+#include <chrono>
+#include <map>
 #include <cmath>
 #include <cstdio>
 #include <cstdlib>
 #include <cstring>
 #include <ctime>
 #include <string>
+#include <vector>
 
 #if defined(__SSE__) || defined(__x86_64__)
 #include <xmmintrin.h>
@@ -94,6 +98,15 @@ struct Plugin {
     pf::Synth           synth{kSampleRate};
     pf::NoteGen         gen{kSampleRate};
     std::string         chunk;       // effGetChunk buffer: must outlive the call
+
+    // MPC's preset list (VST2 programs): the preset library as it was when the plugin loaded --
+    // the factory set, then the user's files. Fixed for the instance's life (a VST2 host reads
+    // numPrograms once). UI thread only.
+    std::vector<std::string> progKeys, progNames;
+    std::map<std::string, int> progIndex;
+    int    program = 0;                  // the last one MPC chose, for a sound from no preset
+    std::chrono::steady_clock::time_point chunkAt{};   // the last project / state load
+    bool   chunkSeen = false;
 
     // audio thread only
     float   snapshot[P_COUNT] = {};
@@ -460,13 +473,79 @@ void onMidi(Plugin* p, const VstEvents* evs) {
     }
 }
 
+// --- MPC's preset list ------------------------------------------------------------------------
+
+// Short category tags keep "category + name" inside the 24 bytes VST2 gives a program name.
+std::string categoryTag(const std::string& c) {
+    static const std::map<std::string, std::string> tags = {
+        {"Templates", "INIT"}, {"Bass", "BASS"}, {"Lead", "LEAD"}, {"Pad", "PAD"}, {"Keys", "KEYS"},
+        {"Pluck", "PLCK"}, {"Bell", "BELL"}, {"Brass & Wind", "BRAS"}, {"Strings", "STR"},
+        {"Vocal", "VOX"}, {"Synth", "SYN"}, {"Arp & Seq", "ARP"}, {"Drum & Perc", "DRUM"}, {"FX", "FX"},
+        {"User", "USER"}};
+    const auto it = tags.find(c);
+    if (it != tags.end()) return it->second;
+    std::string t;   // a folder of the user's: its first four letters or digits, upper case
+    for (char ch : c) {
+        if (t.size() >= 4) break;
+        if (std::isalnum(static_cast<unsigned char>(ch))) t += static_cast<char>(std::toupper(static_cast<unsigned char>(ch)));
+    }
+    return t.empty() ? "USER" : t;
+}
+
+constexpr size_t kProgNameCap = 24;   // VST2 kVstMaxProgNameLen, terminator included
+constexpr int kMaxPrograms = 1024;
+
+void buildPrograms(Plugin* p) {
+    const auto L = presetLibrary().listing();
+    for (const Entry& e : L->items) {
+        if (static_cast<int>(p->progKeys.size()) >= kMaxPrograms) break;
+        p->progIndex.emplace(e.key, static_cast<int>(p->progKeys.size()));
+        p->progKeys.push_back(e.key);
+        p->progNames.push_back(categoryTag(e.category) + " " + e.name);
+    }
+}
+
+// The program the current sound came from; the last one chosen when it came from none.
+int currentProgram(Plugin* p) {
+    const auto it = p->progIndex.find(p->surface.presetKey());
+    return it != p->progIndex.end() ? it->second : p->program;
+}
+
+// Right after a project's state, a host may "restore" a program number on top of it (often 0):
+// that must not replace the sound the project saved. A real choice in the list comes later.
+constexpr double kAfterChunkSec = 2.0;
+
+void setProgram(Plugin* p, int idx) {
+    if (idx < 0 || idx >= static_cast<int>(p->progKeys.size())) return;
+    if (idx == currentProgram(p)) return;   // already playing it: no reload, the sound keeps its edits
+    if (p->chunkSeen) {
+        const double since = std::chrono::duration<double>(std::chrono::steady_clock::now() - p->chunkAt).count();
+        if (since < kAfterChunkSec) return;
+    }
+    p->program = idx;
+    p->surface.selectPreset(p->progKeys[static_cast<size_t>(idx)]);
+}
+
 intptr_t dispatch(Plugin* p, int32_t op, int32_t idx, intptr_t val, void* ptr) {
     const bool validIdx = idx >= 0 && idx < P_COUNT;
     switch (op) {
         case vst::effOpen: return 1;
         case vst::effClose: delete p; return 1;
-        case vst::effGetProgram: return 0;
-        case vst::effGetProgramName: copyStr(ptr, kPlugName, 24); return 0;
+        case vst::effGetProgram: return p->progKeys.empty() ? 0 : currentProgram(p);
+        case vst::effSetProgram: setProgram(p, static_cast<int>(val)); return 0;
+        case vst::effGetProgramName: {
+            const int cur = currentProgram(p);
+            const bool fromList = p->progIndex.count(p->surface.presetKey()) > 0;
+            copyStr(ptr, fromList ? p->progNames[static_cast<size_t>(cur)] : std::string(kPlugName), kProgNameCap);
+            return 0;
+        }
+        case vst::effGetProgramNameIndexed:
+            if (idx < 0 || idx >= static_cast<int>(p->progNames.size())) return 0;
+            copyStr(ptr, p->progNames[static_cast<size_t>(idx)], kProgNameCap);
+            return 1;
+        case vst::effSetProgramName: return 0;   // the names are the presets' own
+        case vst::effBeginSetProgram:
+        case vst::effEndSetProgram: return 0;
         case vst::effGetPlugCategory: return vst::kPlugCategSynth;
         case vst::effGetEffectName:
         case vst::effGetProductString: copyStr(ptr, kPlugName, 32); return 1;
@@ -502,6 +581,8 @@ intptr_t dispatch(Plugin* p, int32_t op, int32_t idx, intptr_t val, void* ptr) {
             if (!ptr || val <= 0 || val > (1 << 20)) return 0;   // a state is ~10 KB; more is not ours
             std::string s(static_cast<const char*>(ptr), static_cast<size_t>(val));
             while (!s.empty() && s.back() == '\0') s.pop_back();
+            p->chunkAt = std::chrono::steady_clock::now();
+            p->chunkSeen = true;
             return loadState(p->surface, s, false) ? 1 : 0;
         }
         default: return 0;
@@ -529,6 +610,8 @@ AEffect* createPlugin(audioMasterCallback master) {
     e->getParameter     = getParameter;
     e->processReplacing = processReplacing;
     e->numParams        = P_COUNT;
+    buildPrograms(p);
+    e->numPrograms      = static_cast<int32_t>(p->progKeys.size());
     e->numInputs        = 0;
     e->numOutputs       = 2;
     e->flags            = vst::effFlagsCanReplacing | vst::effFlagsIsSynth | vst::effFlagsProgramChunks;

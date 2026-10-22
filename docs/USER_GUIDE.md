@@ -216,6 +216,14 @@ project and the table comes back once the file does.
   and voicing stay untouched and attacks stay playable.
 - Browse them with the **PRESET** stepper on the VOICE tab, or on BROWSE → PRESETS (categories,
   favorites, recent, random).
+- **MPC's own preset list** (the PRESET field above the plugin) lists every preset too: the
+  factory set first, then your files, each with a short category tag (`BASS Acid Bass`,
+  `PAD Warm Pad`, `USER User 001`). Picking one loads it like the browser does; a preset picked in
+  the plugin shows there as well. The list is read when the plugin loads: presets you save
+  afterwards appear in it after the plugin is loaded again (the browser has them at once).
+  Picking the preset that is already current keeps your edits; use INIT or another preset first
+  to start it over. For two seconds after a project loads, the plugin ignores a preset number
+  sent on top of it, so the project's own sound stays.
 
 Preset roots: `Presets` in the plugin folder and `/media/AkaiForce/PolyForce Presets` on the SSD;
 categories work as for wavetables. A folder of your own named like a factory category lists next to

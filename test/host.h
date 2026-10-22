@@ -163,5 +163,6 @@ void modulationTests();   // m5_test.cpp
 void sequencerTests();    // m6_test.cpp
 void patchTests();        // m7_test.cpp
 void reviewTests();       // review_test.cpp
+void programTests();      // programs_test.cpp
 
 } // namespace pft
