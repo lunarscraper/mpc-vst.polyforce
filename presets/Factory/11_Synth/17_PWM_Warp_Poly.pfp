@@ -1,0 +1,24 @@
+polyforce 4
+volume=-7.1
+o1_wave=3
+o1_warp=4
+o1_warp_amt=0.3
+o1_uni=3
+o1_detune=0.25
+o2_wave=3
+o2_oct=-1
+o2_level=0.4
+o2_warp=4
+o2_warp_amt=0.5
+f1_type=2
+f1_cut=3000
+f1_res=0.2
+f1_env=0.2
+e1_a=0.01
+e1_r=0.4
+l1_rate=0.4
+m1_src=3
+m1_t1=37
+m1_a1=0.35
+m1_t2=38
+m1_a2=-0.3
