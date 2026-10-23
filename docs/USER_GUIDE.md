@@ -19,7 +19,7 @@ starts with the [status line](#status-line).
 
 | Tab | Pages | What's there |
 |---|---|---|
-| **OSC** | OSC 1 · OSC 2 · NOISE+MIX · WAVES | One oscillator per page: wave or table, position, tuning, unison, level, pan, phase, route and its sub oscillator. NOISE+MIX: the noise source and a mixer for all levels. WAVES: the [wave view](#wave-view) |
+| **OSC** | OSC 1 · OSC 2 · WARP · NOISE+MIX · WAVES | One oscillator per page: wave or table, position, tuning, unison, level, pan, phase, route and its sub oscillator. WARP: both oscillators' [warp](#warp) mode and amount. NOISE+MIX: the noise source and a mixer for all levels. WAVES: the [wave view](#wave-view) |
 | **FILTER** | FILTER | Both filters: type, cutoff, resonance, env 2 amount, keytrack, drive. Routing and engine sit next to the status line |
 | **MOD** | ENVELOPES · LFOS · XY PADS | Amp and mod envelopes · both LFOs · four XY pads with auto-assign |
 | **MATRIX** | MATRIX 1-4 · MATRIX 5-8 · MATRIX 9-12 · MODIFIERS | Four slots per page (source, via, two targets with amounts) · the modifier of every slot |
@@ -45,6 +45,7 @@ show the first eight; the next bank has the rest.
 | Page | Q-Links |
 |---|---|
 | OSC 1, OSC 2 | The eight knobs of the oscillator card · table, pan, phase, phase mode, route, sub wave, sub tune, sub level |
+| WARP | Per oscillator: warp amount, position, detune, level |
 | NOISE+MIX | Noise level, colour, route, both levels and sub levels, volume · sub waves and tunes, pans, routes |
 | WAVES | Per oscillator: table, position, level, wave, unison, detune, width, semi |
 | FILTER | Filter 1's knobs and type, routing, engine · filter 2's, env 2 attack and decay |
@@ -84,6 +85,35 @@ it. It follows the knob, not the modulated position, about 20 times a second.
 - Phase offset with **Reset**, **Random** or **Free** running phase
 - **Sub oscillator:** sine, triangle, saw or square, −36 to +12 semitones, own level
 - **Route** to filter 1, filter 2, both, or **Direct** (past the filters)
+- **Warp** bends how the frame is read within a cycle (below)
+
+### Warp
+
+Each oscillator can warp its frame: the cycle is read faster in some places and slower in others,
+before the table lookup. It works on every table, the classic waves and your own WAVs, and its
+amount is a matrix target (**Osc1 Warp**, **Osc2 Warp**), so an LFO, an envelope or a Q-Link can
+sweep it like the position. Pick the mode on **OSC → WARP**; the amount knob sits next to it.
+
+| Mode | What it does |
+|---|---|
+| **Sync** | Hard sync: the frame runs 1 to 16 times per cycle and is cut off at the cycle's end. The classic sync sweep |
+| **Bend+** | The frame's start and end are squeezed toward the cycle's edges, its middle stretched |
+| **Bend-** | The other way: start and end stretched, the middle squeezed |
+| **PWM** | The frame is squeezed into the first part of the cycle (down to 5%) and the rest holds: pulse-width modulation for any table |
+| **Asym+** | The frame's first half plays faster than its second (up to 10 : 1) |
+| **Asym-** | The first half slower, the second faster |
+| **Mirror** | Blends toward the frame played forward and then backward in one cycle (symmetric, an octave-up character) |
+| **Quantize** | The read position moves in steps (256 down to 4 per cycle): stepped, lo-fi |
+
+- **Off, or amount 0:** the oscillator plays exactly as without the warp, at no extra cost.
+- **Band-limited:** a warp reads parts of the frame faster than the note, so the oscillator picks
+  a smoother mip level for it. On very high notes the warp gets gentler instead of folding back as
+  noise. Sync's cut and Quantize's steps stay hard edges on purpose: that is their sound.
+- **DC:** PWM and Asym spend more of the cycle on one side of the frame, which can leave a DC
+  offset; the filters' high-pass types or MPC's EQ remove it if it matters.
+- **CPU:** a warped oscillator costs more than a plain one (Mirror the most: two reads per
+  sample). With both oscillators warped on 8 voices × 8 unison, watch the CPU meter.
+- **Wave view:** OSC → WAVES shows the frame as the warp reads it.
 
 ### Noise
 
@@ -127,9 +157,9 @@ route.
 poly), pitch bend, random, alternate, gate, the step sequencer's mod lane, four shape sequencers,
 four XY pads (X and Y), breath, expression and a constant.
 
-**36 targets:** global pitch; per oscillator pitch, position, level, pan and detune; both sub
-levels; noise level and colour; each cutoff and both together, resonance and drive; every stage of
-both envelopes; LFO rate and depth; volume and pan.
+**38 targets:** global pitch; per oscillator pitch, position, level, pan, detune and warp amount;
+both sub levels; noise level and colour; each cutoff and both together, resonance and drive; every
+stage of both envelopes; LFO rate and depth; volume and pan.
 
 ### XY pads
 
@@ -206,7 +236,7 @@ project and the table comes back once the file does.
 
 ## Presets
 
-- **205 factory presets** in 14 categories (Templates, Bass, Lead, Pad, Keys, Pluck, Bell, Brass &
+- **209 factory presets** in 14 categories (Templates, Bass, Lead, Pad, Keys, Pluck, Bell, Brass &
   Wind, Strings, Vocal, Synth, Arp & Seq, Drum & Perc, FX), built into the plugin and level-matched.
   The list: [Factory content](FACTORY_CONTENT.md#factory-presets).
 - **SAVE** (VOICE tab) writes the current sound to `Presets/User/User NNN.pfp` in the plugin folder.

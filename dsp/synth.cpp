@@ -2,6 +2,7 @@
 
 #include "simd.h"
 #include "stages.h"
+#include "warp.h"
 
 #include <algorithm>
 #include <cmath>
@@ -524,6 +525,99 @@ uint32_t play(const Play& p, uint32_t ph, uint32_t dph, float gl0, float dgl, fl
 
 using PlayFn = uint32_t (*)(const Play&, uint32_t, uint32_t, float, float, float, float, float*, float*, int);
 constexpr PlayFn kPlay[3] = {play<PK_FLOAT>, play<PK_INT>, play<PK_MORPH>};
+
+// The fastest a warped read may run, in cycles per sample (makeWarp's maxFactor = this / inc).
+constexpr float kWarpNyquist = 0.3f;   // measured: PWM at A5 keeps 98% of its power on the harmonics
+
+// play() with a warp (dsp/warp.h): the phase runs as before, each sample reads at its warped
+// position. Four samples at a time in vector code (NEON on the Force, SSE on x86): the phases are
+// warped, turned into level indices and fractions, the eight samples around them gathered, and
+// the interpolation, morph and gains done four at a time. Only oscillators with a warp on take
+// this path; the rest keep play()'s speed.
+typedef uint32_t u4w __attribute__((vector_size(16)));
+
+template <int Kind>
+inline f4 gather4(const Play& p, u4w idx, f4 fr, f4 morph) {
+    alignas(16) float a0[4], a1[4];
+    if (Kind == PK_FLOAT) {
+        for (int j = 0; j < 4; ++j) {
+            a0[j] = p.f[idx[j]];
+            a1[j] = p.f[idx[j] + 1];
+        }
+        const f4 A0 = load4(a0);
+        return A0 + fr * (load4(a1) - A0);
+    }
+    alignas(16) float b0[4], b1[4];
+    for (int j = 0; j < 4; ++j) {
+        a0[j] = static_cast<float>(p.a[idx[j]]);
+        a1[j] = static_cast<float>(p.a[idx[j] + 1]);
+        if (Kind == PK_MORPH) {
+            b0[j] = static_cast<float>(p.b[idx[j]]);
+            b1[j] = static_cast<float>(p.b[idx[j] + 1]);
+        }
+    }
+    const f4 A0 = load4(a0);
+    f4 x = A0 + fr * (load4(a1) - A0);
+    if (Kind == PK_MORPH) {
+        const f4 B0 = load4(b0);
+        const f4 xa = x * splat(p.sa), xb = (B0 + fr * (load4(b1) - B0)) * splat(p.sb);
+        x = xa + morph * (xb - xa);
+    }
+    return x;
+}
+
+template <int Kind, int Mode>
+uint32_t playWarp(const Play& p, const Warp& w, uint32_t ph, uint32_t dph, float gl0, float dgl, float gr0, float dgr,
+                  float* L, float* R, int n) {
+    const int shift = p.shift;
+    const uint32_t mask = (1u << shift) - 1;
+    const u4w maskv = {mask, mask, mask, mask};
+    const f4 fracScale = splat(p.frac), toCycle = splat(1.0f / 4294967296.0f), toPhase = splat(4294967296.0f);
+    const f4 k4 = {1.0f, 2.0f, 3.0f, 4.0f};
+    u4w phv = {ph, ph + dph, ph + 2 * dph, ph + 3 * dph};
+    const uint32_t step = 4 * dph;
+    const u4w step4 = {step, step, step, step};
+    f4 glv = splat(gl0) + k4 * splat(dgl), grv = splat(gr0) + k4 * splat(dgr);
+    f4 mv = splat(p.m0) + k4 * splat(p.dm);
+    const f4 dgl4 = splat(4.0f * dgl), dgr4 = splat(4.0f * dgr), dm4 = splat(4.0f * p.dm);
+    for (int i = 0; i < n; i += 4) {
+        const f4 P = __builtin_convertvector(phv, f4) * toCycle;
+        const f4 Q = Mode == WP_MIRROR ? min4(max4(P, splat(0.0f)), splat(kWarpTop)) : warp4<Mode>(w, P);
+        const u4w q = __builtin_convertvector(Q * toPhase, u4w);
+        f4 x = gather4<Kind>(p, q >> shift, __builtin_convertvector(q & maskv, f4) * fracScale, mv);
+        if (Mode == WP_MIRROR) {
+            const u4w r = __builtin_convertvector(mirror4(P) * toPhase, u4w);
+            const f4 y = gather4<Kind>(p, r >> shift, __builtin_convertvector(r & maskv, f4) * fracScale, mv);
+            x += splat(w.amt) * (y - x);
+        }
+        if (i + 4 <= n) {
+            store4(L + i, load4(L + i) + x * glv);
+            store4(R + i, load4(R + i) + x * grv);
+        } else {   // the chunk's last 1..3 samples
+            alignas(16) float xs[4], gl[4], gr[4];
+            store4(xs, x);
+            store4(gl, glv);
+            store4(gr, grv);
+            for (int j = 0; i + j < n; ++j) {
+                L[i + j] += xs[j] * gl[j];
+                R[i + j] += xs[j] * gr[j];
+            }
+        }
+        phv += step4;
+        glv += dgl4;
+        grv += dgr4;
+        mv += dm4;
+    }
+    return ph + static_cast<uint32_t>(n) * dph;
+}
+
+using WarpFn = uint32_t (*)(const Play&, const Warp&, uint32_t, uint32_t, float, float, float, float, float*, float*, int);
+template <int Mode> constexpr WarpFn kWarpKinds[3] = {playWarp<PK_FLOAT, Mode>, playWarp<PK_INT, Mode>, playWarp<PK_MORPH, Mode>};
+constexpr const WarpFn* kPlayWarp[WP_COUNT] = {
+    kWarpKinds<WP_SYNC>,   // WP_OFF never plays here
+    kWarpKinds<WP_SYNC>, kWarpKinds<WP_BEND_PLUS>, kWarpKinds<WP_BEND_MINUS>, kWarpKinds<WP_PWM>,
+    kWarpKinds<WP_ASYM_PLUS>, kWarpKinds<WP_ASYM_MINUS>, kWarpKinds<WP_MIRROR>, kWarpKinds<WP_QUANTIZE>,
+};
 
 } // namespace
 
@@ -1067,7 +1161,7 @@ void Synth::modulate(Voice& v, float env2, int n, Mods& m) {
     v.sinceOn += static_cast<uint32_t>(n);
     if (nSlots_ == 0) {
         for (int k = 0; k < 2; ++k) {
-            m.pitch[k] = m.pos[k] = m.pan[k] = m.detune[k] = 0.0f;
+            m.pitch[k] = m.pos[k] = m.pan[k] = m.detune[k] = m.warp[k] = 0.0f;
             m.cutoff[k] = m.res[k] = m.drive[k] = 0.0f;
         }
         m.amp = 1.0f;
@@ -1133,6 +1227,7 @@ void Synth::modulate(Voice& v, float env2, int n, Mods& m) {
         m.level[o] = clampf(m.level[o] + acc[MT_O1_LEVEL + o], 0.0f, 1.0f);
         m.pan[o] = acc[MT_O1_PAN + o];
         m.detune[o] = acc[MT_O1_DETUNE + o];
+        m.warp[o] = acc[MT_O1_WARP + o];
         m.subLevel[o] = clampf(m.subLevel[o] + acc[MT_SUB1_LEVEL + o], 0.0f, 1.0f);
     }
     m.noiseLevel = clampf(m.noiseLevel + acc[MT_NOISE_LEVEL], 0.0f, 1.0f);
@@ -1195,11 +1290,29 @@ void Synth::waveView(int o, float* out, int n) const {
     const int16_t* B = t->get(fb, 0);
     const float sa = t->scale[static_cast<size_t>(fa)], sb = t->scale[static_cast<size_t>(fb)];
     const int len = mipLength(0);
+    // With a warp, the cycle as the oscillator reads it (the patch's amount, without modulation).
+    const OscPatch& op = patch_.osc[o];
+    const Warp w = op.warp > WP_OFF && op.warp < WP_COUNT && op.warpAmt > 1e-4f ? makeWarp(op.warp, op.warpAmt) : Warp{};
+    auto at = [&](float q) {   // q: 0..1 of the cycle, linear between the level's samples
+        const float x = q * static_cast<float>(len);
+        const int s = std::min(static_cast<int>(x), len - 1);
+        const float fr = x - static_cast<float>(s);
+        const float a0 = static_cast<float>(A[s]) * sa, a1 = static_cast<float>(A[s + 1]) * sa;
+        const float b0 = static_cast<float>(B[s]) * sb, b1 = static_cast<float>(B[s + 1]) * sb;
+        const float va = a0 + fr * (a1 - a0), vb = b0 + fr * (b1 - b0);
+        return va + morph * (vb - va);
+    };
     for (int c = 0; c < n; ++c) {
         float best = 0.0f;
         for (int s = c * len / n, e = (c + 1) * len / n; s < e; ++s) {
-            const float a = static_cast<float>(A[s]) * sa;
-            const float v = a + morph * (static_cast<float>(B[s]) * sb - a);
+            float v;
+            if (w.mode == WP_OFF) {
+                const float a = static_cast<float>(A[s]) * sa;
+                v = a + morph * (static_cast<float>(B[s]) * sb - a);
+            } else {
+                const float p = static_cast<float>(s) / static_cast<float>(len);
+                v = w.mode == WP_MIRROR ? at(p) + w.amt * (at(mirrorPhase(p)) - at(p)) : at(warpPhase(w, p));
+            }
             if (std::fabs(v) > std::fabs(best)) best = v;
         }
         out[c] = clampf(best, -1.0f, 1.0f);
@@ -1627,7 +1740,12 @@ void Synth::renderOsc(Voice& v, int o, float pitch, const Mods& m, float* L, flo
         for (int u = 0; u < s.n; ++u) ratio[u] = s.ratio[u];
     }
     const float inc = std::min(noteHz(pitch + p.pitch + m.pitch[o]) / sr_, 0.45f);   // cycles per sample
-    const int mip = mipFor(inc * maxRatio);                                          // the stack's highest voice decides
+    // Warp (dsp/warp.h): the amount with its modulation, once per chunk. Its steepest speed-up
+    // raises the mip level, so the warped read stays band-limited.
+    const float warpAmt = clampf(p.warpAmt + m.warp[o], 0.0f, 1.0f);
+    const bool warped = p.warp > WP_OFF && p.warp < WP_COUNT && warpAmt > 1e-4f;
+    const Warp warp = warped ? makeWarp(p.warp, warpAmt, kWarpNyquist / (inc * maxRatio)) : Warp{};
+    const int mip = mipFor(inc * maxRatio * warp.factor);                            // the stack's highest voice decides
     float lvl = m.level[o], lvr = m.level[o];
     if (m.pan[o] != 0.0f) {   // pan modulated: a balance on top of the stack's own placement
         float pl, pr;
@@ -1665,7 +1783,8 @@ void Synth::renderOsc(Voice& v, int o, float pitch, const Mods& m, float* L, flo
         const uint32_t dph = static_cast<uint32_t>(inc * ratio[u] * 4294967296.0f);
         const float gl0 = s.gl[u] * lvl0, gr0 = s.gr[u] * lvr0;
         const float dgl = (s.gl[u] * lvl - gl0) * invN, dgr = (s.gr[u] * lvr - gr0) * invN;
-        v.phase[o][u] = kPlay[kind](src, v.phase[o][u], dph, gl0 * gs, dgl * gs, gr0 * gs, dgr * gs, L, R, n);
+        v.phase[o][u] = warped ? kPlayWarp[warp.mode][kind](src, warp, v.phase[o][u], dph, gl0 * gs, dgl * gs, gr0 * gs, dgr * gs, L, R, n)
+                               : kPlay[kind](src, v.phase[o][u], dph, gl0 * gs, dgl * gs, gr0 * gs, dgr * gs, L, R, n);
     }
 }
 

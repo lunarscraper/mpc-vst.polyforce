@@ -1,6 +1,6 @@
 # Factory content
 
-PolyForce ships with 30 built-in wavetables and 205 factory presets. Everything is computed or
+PolyForce ships with 30 built-in wavetables and 209 factory presets. Everything is computed or
 written for PolyForce: no sample data, nothing that depends on files on the device.
 
 - [Built-in wavetables](#built-in-wavetables)
@@ -52,23 +52,23 @@ like a file (evicted when unused, rebuilt on demand): 6 to 73 ms each on x86.
 
 ## Factory presets
 
-205 presets in 14 categories, one folder per category under `presets/Factory/`. These are the
+209 presets in 14 categories, one folder per category under `presets/Factory/`. These are the
 preset browser's categories, in this order. A user folder named like a factory category lists next
 to it as "Bass (files)" and so on.
 
 | Category | Presets | For example |
 |---|---|---|
 | Templates | 9 | Init, Init Mono, Init Pad, Init Pluck, Init Wavetable, Init Arp, Init Seq, Init Drum |
-| Bass | 24 | Moog Bass, Reese Bass, 808 Bass, FM Bass, Growl Bass, Talk Bass, Neuro Bass, Chip Bass |
-| Lead | 20 | Saw Lead, Prophet Lead, Screamer, Fold Lead, Chip Lead, Vowel Lead, Whistle, Theremin |
-| Pad | 20 | Warm Pad, Juno Pad, Glass Pad, Shimmer Pad, Flanger Pad, Air Pad, Drone Pad, Motion Pad |
+| Bass | 25 | Warp Growl, Moog Bass, Reese Bass, 808 Bass, FM Bass, Growl Bass, Talk Bass, Neuro Bass, Chip Bass |
+| Lead | 21 | Sync Warp Lead, Saw Lead, Prophet Lead, Screamer, Fold Lead, Chip Lead, Vowel Lead, Whistle, Theremin |
+| Pad | 21 | Mirror Warp Pad, Warm Pad, Juno Pad, Glass Pad, Shimmer Pad, Flanger Pad, Air Pad, Drone Pad, Motion Pad |
 | Keys | 13 | E-Piano, Suitcase EP, FM E-Piano, Wurli, Clav, Harpsichord, Jazz Organ, Church Organ |
 | Pluck | 14 | Harp, Nylon Guitar, Koto, Sitar, Banjo, Future Pluck, Glass Pluck, Dub Pluck |
 | Bell | 14 | Church Bell, Tubular Bell, Gong, Marimba, Vibraphone, Glockenspiel, Kalimba, Music Box |
 | Brass & Wind | 12 | Brass Section, Trumpet, French Horn, Synth Brass, Flute, Clarinet, Oboe, Sax, Pan Flute |
 | Strings | 10 | String Ensemble, Solo Violin, Cello, Pizzicato, Tremolo Strings, Solina, Slow Strings |
 | Vocal | 10 | Choir Aah, Choir Ooh, Talk Box, Robot Voice, Wah Vox, Vowel Morph, Monk Choir |
-| Synth | 16 | House Stab, Prophet Poly, Supersaw Chords, CZ Poly, Lo-Fi Keys, Chip Poly, Reso Motion |
+| Synth | 17 | PWM Warp Poly, House Stab, Prophet Poly, Supersaw Chords, CZ Poly, Lo-Fi Keys, Chip Poly, Reso Motion |
 | Arp & Seq | 16 | Up Down Arp, Chord Pulse, Berlin School, Acid Seq, Rhythm Gate, Shape Wobble, Bell Arp |
 | Drum & Perc | 13 | Kick, 808 Kick, Snare, Clap, Closed Hat, Open Hat, Tom, Cowbell, Conga, Shaker |
 | FX | 14 | Riser, Downlifter, Laser, Siren, Robot Bleeps, Wind, Ocean, Impact, Glitch, Star Field |

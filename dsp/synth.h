@@ -59,6 +59,8 @@ struct OscPatch {
     int   subWave = CW_SINE;   // Sine, Triangle, Saw, Square (follows the oscillator's pitch)
     float subTune = -12.0f;    // semitones from the oscillator
     float subLevel = 0.0f;     // 0..1
+    int   warp = 0;            // dsp/warp.h WarpMode (0 = off)
+    float warpAmt = 0.0f;      // 0..1
 };
 
 struct NoisePatch {
@@ -276,6 +278,7 @@ private:
         float level[2] = {};      // oscillator level 0..1 (the patch's, modulated)
         float pan[2] = {};        // added to the oscillator's pan
         float detune[2] = {};     // added to the oscillator's detune
+        float warp[2] = {};       // added to the oscillator's warp amount
         float subLevel[2] = {};
         float noiseLevel = 0.0f, noiseColor = 0.0f;
         float cutoff[2] = {};     // semitones per filter

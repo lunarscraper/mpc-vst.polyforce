@@ -139,8 +139,11 @@ struct Plugin {
         size_t name = 0;
         int frames = 0, wave = -1;
         float pos = -1.0f;
+        int warp = -1;
+        float warpAmt = -1.0f;
         bool operator==(const WaveKey& o) const {
-            return table == o.table && name == o.name && frames == o.frames && wave == o.wave && pos == o.pos;
+            return table == o.table && name == o.name && frames == o.frames && wave == o.wave && pos == o.pos &&
+                   warp == o.warp && warpAmt == o.warpAmt;
         }
     };
     WaveKey waveKey[2];
@@ -273,7 +276,7 @@ void updateWaveView(Plugin* p) {
     for (int o = 0; o < 2; ++o) {
         const Wavetable* t = p->synth.oscTable(o);
         const Plugin::WaveKey key{t, t ? std::hash<std::string>{}(t->name) : 0, t ? t->frames : 0,
-                                  p->patch.osc[o].wave, p->patch.osc[o].pos};
+                                  p->patch.osc[o].wave, p->patch.osc[o].pos, p->patch.osc[o].warp, p->patch.osc[o].warpAmt};
         if (p->waveValid[o] && key == p->waveKey[o]) continue;
         float cols[kWaveCols];
         p->synth.waveView(o, cols, kWaveCols);

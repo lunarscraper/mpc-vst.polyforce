@@ -1,4 +1,5 @@
 #include "patch_map.h"
+#include "../dsp/warp.h"
 
 #include <algorithm>
 #include <cmath>
@@ -20,6 +21,7 @@ static_assert(P_L2_DEPTH - P_L2_WAVE == P_L1_DEPTH - P_L1_WAVE, "LFO params out 
 static_assert(P_M12_A2 - P_M12_SRC == P_M1_A2 - P_M1_SRC && P_M12_SRC - P_M1_SRC == 11 * (P_M2_SRC - P_M1_SRC),
               "matrix params out of order");
 static_assert(P_XY4_Y - P_XY1_X == 7, "XY params out of order");
+static_assert(kNumWarpModes == WP_COUNT, "surface.py WARP_MODES must match dsp/warp.h WarpMode");
 static_assert(P_M1_A1 == P_M1_T1 + 1 && P_M1_A2 == P_M1_T2 + 1, "a matrix amount must follow its target (surface.cpp)");
 static_assert(kNumArpDirs == AD_COUNT && kNumSeqSteps == kSeqSteps && kNumShapeSteps == kShapeSteps,
               "surface.py sequencer lists must match dsp/notegen.h");
@@ -200,6 +202,8 @@ Patch patchFromParams(const float* norm) {
         x.subWave = static_cast<int>(V(P_O1_SUB_WAVE + d));
         x.subTune = V(P_O1_SUB_TUNE + d);
         x.subLevel = V(P_O1_SUB_LEVEL + d);
+        x.warp = static_cast<int>(V(o ? P_O2_WARP : P_O1_WARP));   // appended after the wave view: no stride
+        x.warpAmt = V(o ? P_O2_WARP_AMT : P_O1_WARP_AMT);
     }
     p.noise.level = V(P_NOISE_LEVEL);
     p.noise.color = V(P_NOISE_COLOR);

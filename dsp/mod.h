@@ -28,6 +28,7 @@ enum ModTarget : int {
     MT_F1_CUT, MT_F2_CUT, MT_CUT, MT_F1_RES, MT_F2_RES, MT_F1_DRIVE, MT_F2_DRIVE,
     MT_E1_A, MT_E1_D, MT_E1_S, MT_E1_R, MT_E2_A, MT_E2_D, MT_E2_S, MT_E2_R,
     MT_L1_RATE, MT_L2_RATE, MT_L1_DEPTH, MT_L2_DEPTH, MT_VOLUME, MT_PAN,
+    MT_O1_WARP, MT_O2_WARP,   // appended: saved targets keep their numbers
     MT_COUNT
 };
 
@@ -45,7 +46,7 @@ enum class Unit : unsigned char { None, Semis, Pos, Level, Pan, Detune, Color, C
                                   EnvLevel, LfoRate, Depth, Volume };
 constexpr Unit targetUnit(int t) {
     return t == MT_PITCH || t == MT_O1_PITCH || t == MT_O2_PITCH ? Unit::Semis
-         : t == MT_O1_POS || t == MT_O2_POS ? Unit::Pos
+         : t == MT_O1_POS || t == MT_O2_POS || t == MT_O1_WARP || t == MT_O2_WARP ? Unit::Pos
          : t == MT_O1_LEVEL || t == MT_O2_LEVEL || t == MT_SUB1_LEVEL || t == MT_SUB2_LEVEL || t == MT_NOISE_LEVEL ? Unit::Level
          : t == MT_O1_PAN || t == MT_O2_PAN || t == MT_PAN ? Unit::Pan
          : t == MT_O1_DETUNE || t == MT_O2_DETUNE ? Unit::Detune
