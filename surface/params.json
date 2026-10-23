@@ -1049,7 +1049,9 @@
     "LFO1 Depth",
     "LFO2 Depth",
     "Volume",
-    "Pan"
+    "Pan",
+    "Osc1 Warp",
+    "Osc2 Warp"
    ],
    "default": "Off"
   },
@@ -1101,7 +1103,9 @@
     "LFO1 Depth",
     "LFO2 Depth",
     "Volume",
-    "Pan"
+    "Pan",
+    "Osc1 Warp",
+    "Osc2 Warp"
    ],
    "default": "Off"
   },
@@ -1301,7 +1305,9 @@
     "LFO1 Depth",
     "LFO2 Depth",
     "Volume",
-    "Pan"
+    "Pan",
+    "Osc1 Warp",
+    "Osc2 Warp"
    ],
    "default": "Off"
   },
@@ -1353,7 +1359,9 @@
     "LFO1 Depth",
     "LFO2 Depth",
     "Volume",
-    "Pan"
+    "Pan",
+    "Osc1 Warp",
+    "Osc2 Warp"
    ],
    "default": "Off"
   },
@@ -1553,7 +1561,9 @@
     "LFO1 Depth",
     "LFO2 Depth",
     "Volume",
-    "Pan"
+    "Pan",
+    "Osc1 Warp",
+    "Osc2 Warp"
    ],
    "default": "Off"
   },
@@ -1605,7 +1615,9 @@
     "LFO1 Depth",
     "LFO2 Depth",
     "Volume",
-    "Pan"
+    "Pan",
+    "Osc1 Warp",
+    "Osc2 Warp"
    ],
    "default": "Off"
   },
@@ -1805,7 +1817,9 @@
     "LFO1 Depth",
     "LFO2 Depth",
     "Volume",
-    "Pan"
+    "Pan",
+    "Osc1 Warp",
+    "Osc2 Warp"
    ],
    "default": "Off"
   },
@@ -1857,7 +1871,9 @@
     "LFO1 Depth",
     "LFO2 Depth",
     "Volume",
-    "Pan"
+    "Pan",
+    "Osc1 Warp",
+    "Osc2 Warp"
    ],
    "default": "Off"
   },
@@ -2057,7 +2073,9 @@
     "LFO1 Depth",
     "LFO2 Depth",
     "Volume",
-    "Pan"
+    "Pan",
+    "Osc1 Warp",
+    "Osc2 Warp"
    ],
    "default": "Off"
   },
@@ -2109,7 +2127,9 @@
     "LFO1 Depth",
     "LFO2 Depth",
     "Volume",
-    "Pan"
+    "Pan",
+    "Osc1 Warp",
+    "Osc2 Warp"
    ],
    "default": "Off"
   },
@@ -2309,7 +2329,9 @@
     "LFO1 Depth",
     "LFO2 Depth",
     "Volume",
-    "Pan"
+    "Pan",
+    "Osc1 Warp",
+    "Osc2 Warp"
    ],
    "default": "Off"
   },
@@ -2361,7 +2383,9 @@
     "LFO1 Depth",
     "LFO2 Depth",
     "Volume",
-    "Pan"
+    "Pan",
+    "Osc1 Warp",
+    "Osc2 Warp"
    ],
    "default": "Off"
   },
@@ -2561,7 +2585,9 @@
     "LFO1 Depth",
     "LFO2 Depth",
     "Volume",
-    "Pan"
+    "Pan",
+    "Osc1 Warp",
+    "Osc2 Warp"
    ],
    "default": "Off"
   },
@@ -2613,7 +2639,9 @@
     "LFO1 Depth",
     "LFO2 Depth",
     "Volume",
-    "Pan"
+    "Pan",
+    "Osc1 Warp",
+    "Osc2 Warp"
    ],
    "default": "Off"
   },
@@ -2813,7 +2841,9 @@
     "LFO1 Depth",
     "LFO2 Depth",
     "Volume",
-    "Pan"
+    "Pan",
+    "Osc1 Warp",
+    "Osc2 Warp"
    ],
    "default": "Off"
   },
@@ -2865,7 +2895,9 @@
     "LFO1 Depth",
     "LFO2 Depth",
     "Volume",
-    "Pan"
+    "Pan",
+    "Osc1 Warp",
+    "Osc2 Warp"
    ],
    "default": "Off"
   },
@@ -3065,7 +3097,9 @@
     "LFO1 Depth",
     "LFO2 Depth",
     "Volume",
-    "Pan"
+    "Pan",
+    "Osc1 Warp",
+    "Osc2 Warp"
    ],
    "default": "Off"
   },
@@ -3117,7 +3151,9 @@
     "LFO1 Depth",
     "LFO2 Depth",
     "Volume",
-    "Pan"
+    "Pan",
+    "Osc1 Warp",
+    "Osc2 Warp"
    ],
    "default": "Off"
   },
@@ -3317,7 +3353,9 @@
     "LFO1 Depth",
     "LFO2 Depth",
     "Volume",
-    "Pan"
+    "Pan",
+    "Osc1 Warp",
+    "Osc2 Warp"
    ],
    "default": "Off"
   },
@@ -3369,7 +3407,9 @@
     "LFO1 Depth",
     "LFO2 Depth",
     "Volume",
-    "Pan"
+    "Pan",
+    "Osc1 Warp",
+    "Osc2 Warp"
    ],
    "default": "Off"
   },
@@ -3569,7 +3609,9 @@
     "LFO1 Depth",
     "LFO2 Depth",
     "Volume",
-    "Pan"
+    "Pan",
+    "Osc1 Warp",
+    "Osc2 Warp"
    ],
    "default": "Off"
   },
@@ -3621,7 +3663,9 @@
     "LFO1 Depth",
     "LFO2 Depth",
     "Volume",
-    "Pan"
+    "Pan",
+    "Osc1 Warp",
+    "Osc2 Warp"
    ],
    "default": "Off"
   },
@@ -3821,7 +3865,9 @@
     "LFO1 Depth",
     "LFO2 Depth",
     "Volume",
-    "Pan"
+    "Pan",
+    "Osc1 Warp",
+    "Osc2 Warp"
    ],
    "default": "Off"
   },
@@ -3873,7 +3919,9 @@
     "LFO1 Depth",
     "LFO2 Depth",
     "Volume",
-    "Pan"
+    "Pan",
+    "Osc1 Warp",
+    "Osc2 Warp"
    ],
    "default": "Off"
   },
@@ -6283,6 +6331,54 @@
    "min": 0,
    "max": 1,
    "default": 0.5,
+   "display": "string"
+  },
+  {
+   "key": "o1_warp",
+   "name": "O1 Warp",
+   "options": [
+    "Off",
+    "Sync",
+    "Bend+",
+    "Bend-",
+    "PWM",
+    "Asym+",
+    "Asym-",
+    "Mirror",
+    "Quantize"
+   ],
+   "default": "Off"
+  },
+  {
+   "key": "o1_warp_amt",
+   "name": "O1 Warp Amt",
+   "min": 0,
+   "max": 1,
+   "default": 0.0,
+   "display": "string"
+  },
+  {
+   "key": "o2_warp",
+   "name": "O2 Warp",
+   "options": [
+    "Off",
+    "Sync",
+    "Bend+",
+    "Bend-",
+    "PWM",
+    "Asym+",
+    "Asym-",
+    "Mirror",
+    "Quantize"
+   ],
+   "default": "Off"
+  },
+  {
+   "key": "o2_warp_amt",
+   "name": "O2 Warp Amt",
+   "min": 0,
+   "max": 1,
+   "default": 0.0,
    "display": "string"
   }
  ]

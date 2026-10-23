@@ -368,6 +368,8 @@ int main() {
     patchTests();
     std::printf("== review fixes\n");
     reviewTests();
+    std::printf("== warp\n");
+    warpTests();
     std::printf("== MPC preset list\n");
     programTests();
     std::printf("== imported wavetable\n");

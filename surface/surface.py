@@ -184,7 +184,7 @@ MOD_TARGETS = ["Off", "Pitch", "Osc1 Pitch", "Osc2 Pitch", "Osc1 Pos", "Osc2 Pos
                "Noise Colour", "F1 Cutoff", "F2 Cutoff", "Cutoffs", "F1 Reso", "F2 Reso", "F1 Drive", "F2 Drive",
                "Env1 Attack", "Env1 Decay", "Env1 Sustain", "Env1 Release", "Env2 Attack", "Env2 Decay",
                "Env2 Sustain", "Env2 Release", "LFO1 Rate", "LFO2 Rate", "LFO1 Depth", "LFO2 Depth", "Volume",
-               "Pan"]   # ModTarget
+               "Pan", "Osc1 Warp", "Osc2 Warp"]   # ModTarget (append only: presets store the number)
 MODIFIERS = ["None", "Curve", "Rectify", "Quantize", "S&H", "Slew"]   # ModModifier
 MOD_SLOTS = 12
 
@@ -292,6 +292,13 @@ button("swap", "Swap 1 <> 2")
 for o in (1, 2):
     for c in range(1, WAVE_COLS + 1):
         meter_param("o%d_wv%02d" % (o, c), "O%d Wave %02d" % (o, c))
+
+# --- oscillator warp (dsp/warp.h): appended after everything else, so the parameter numbers MPC projects
+# and Q-Link assignments use stay where they were ---
+WARP_MODES = ["Off", "Sync", "Bend+", "Bend-", "PWM", "Asym+", "Asym-", "Mirror", "Quantize"]   # dsp WarpMode
+for o in (1, 2):
+    enum("o%d_warp" % o, "O%d Warp" % o, WARP_MODES, "Off")
+    num("o%d_warp_amt" % o, "O%d Warp Amt" % o, "lin", 0, 1, 0, "pct")
 
 
 def norm(p):
@@ -481,6 +488,17 @@ def build_layout():
         L.vseg(R4[0], R2 + 160, p + "sub_wave", label="WAVE")
         L.knob(R4[1] + 20, R2 + 126, p + "sub_tune")
         L.knob(R4[2] + 40, R2 + 126, p + "sub_level")
+    # WARP: both oscillators' warp mode (all nine at a glance) and amount, with the knobs a warp is played with.
+    warp5 = ("warp_amt", "pos", "uni", "detune", "level")
+    L.page("WARP", ["o1_" + k for k in ("warp_amt", "pos", "detune", "level")]
+           + ["o2_" + k for k in ("warp_amt", "pos", "detune", "level")])
+    L.header()
+    for o, top in ((1, R1), (2, R2)):
+        p = "o%d_" % o
+        L.card(24, top, 1232, 270, "OSCILLATOR %d WARP" % o)
+        L.hseg(640, top + 96, p + "warp", 120, label="WARP")
+        for cx, k in zip(S8, warp5):
+            L.knob(cx, top + 172, p + k)
     L.page("NOISE+MIX", ["noise_level", "noise_color", "noise_route", "o1_level", "o2_level", "o1_sub_level",
                          "o2_sub_level", "volume", "o1_sub_wave", "o1_sub_tune", "o2_sub_wave", "o2_sub_tune",
                          "o1_pan", "o2_pan", "o1_route", "o2_route"])
@@ -1157,12 +1175,13 @@ constexpr int kNumArpDirs = %d;
 constexpr int kNumSeqSteps = %d;
 constexpr int kNumShapeSteps = %d;
 constexpr int kWaveCols = %d;   // the wave view's columns per oscillator: P_O1_WV01.., P_O2_WV01..
+constexpr int kNumWarpModes = %d;
 
 } // namespace pf
 """ % (ids, specs, "\n".join(opts), info, c_str(VST["name"]), c_str(VST["vendor"]), uid, VST["uid"],
        VST["version"], len(FILTER_TYPES), MAX_VOICES, MAX_UNISON, STEPPER_RANGE, BROWSER_CATS, BROWSER_ITEMS,
        len(LFO_WAVES), len(SYNC_DIVS), len(MOD_SOURCES), len(MOD_TARGETS), len(MODIFIERS), MOD_SLOTS,
-       len(ARP_DIRS), SEQ_STEPS, SHAPE_STEPS, WAVE_COLS)
+       len(ARP_DIRS), SEQ_STEPS, SHAPE_STEPS, WAVE_COLS, len(WARP_MODES))
 
 
 # --- factory presets: presets/Factory/<NN_Category>/<NN_Name>.pfp, embedded in the .so ---------

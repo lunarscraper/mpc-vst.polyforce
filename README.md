@@ -19,12 +19,13 @@ all PolyForce's own.
 
 - **8 voices** · Poly, Duo, Mono and Legato · four steal modes with click-free fades · glide
 - **Two wavetable oscillators** with up to 8× unison, classic waves, sub oscillators and a noise source
+- **Oscillator warp** — Sync, Bend±, PWM, Asym±, Mirror and Quantize on any table, the amount a modulation target
 - **Two filters** — LP, BP, HP, notch, peak, comb and vowel — serial or parallel, three engine characters
-- **Deep modulation** — two LFOs, a 12-slot matrix (28 sources, 36 targets) with modifiers, four XY pads
+- **Deep modulation** — two LFOs, a 12-slot matrix (28 sources, 38 targets) with modifiers, four XY pads
 - **Arpeggiator, 16-step sequencer and four shape sequencers**, locked to MPC's transport
 - **30 built-in wavetables** — analog, FM, digital, vocal, acoustic and chip — plus your own
   (Serum-format WAVs and hardware-style tables such as Access Virus TI exports) from the plugin folder or the SSD, with a browser, favorites and recents
-- **205 factory presets** in 14 categories, level-matched; user presets, Init and Randomize,
+- **209 factory presets** in 14 categories, level-matched; user presets, Init and Randomize,
   `.tun` / `.scl` microtuning
 - **Built for the Force's CPU** — NEON vectorisation, a profile-guided build, and a CPU guard that
   sheds release tails before the audio drops out
@@ -36,7 +37,7 @@ Effects are deliberately left out: use MPC's insert effects on the track.
 | Document | What's in it |
 |---|---|
 | [User guide](docs/USER_GUIDE.md) | The pages, the sound engine, wavetables, presets, tunings, MIDI |
-| [Factory content](docs/FACTORY_CONTENT.md) | The 30 built-in wavetables and 205 factory presets |
+| [Factory content](docs/FACTORY_CONTENT.md) | The 30 built-in wavetables and 209 factory presets |
 | [Building](docs/BUILDING.md) | Toolchain, make targets, tests, device bench, packaging |
 | [Architecture](docs/ARCHITECTURE.md) | Source layout, threads and real-time rules, saved state |
 | [Performance](docs/PERFORMANCE.md) | CPU budget, optimisation passes, measurements, CPU guard |

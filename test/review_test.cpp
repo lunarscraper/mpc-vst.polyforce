@@ -951,8 +951,8 @@ void pluginFixes2() {
             "Osc2 Pan", "Osc1 Detune", "Osc2 Detune", "Sub1 Level", "Sub2 Level", "Noise Level", "Noise Colour",
             "F1 Cutoff", "F2 Cutoff", "Cutoffs", "F1 Reso", "F2 Reso", "F1 Drive", "F2 Drive", "Env1 Attack",
             "Env1 Decay", "Env1 Sustain", "Env1 Release", "Env2 Attack", "Env2 Decay", "Env2 Sustain", "Env2 Release",
-            "LFO1 Rate", "LFO2 Rate", "LFO1 Depth", "LFO2 Depth", "Volume", "Pan"};
-        static_assert(pf::MS_BREATH == 26 && pf::MT_VOLUME == 35, "update the lists above with the enums");
+            "LFO1 Rate", "LFO2 Rate", "LFO1 Depth", "LFO2 Depth", "Volume", "Pan", "Osc1 Warp", "Osc2 Warp"};
+        static_assert(pf::MS_BREATH == 26 && pf::MT_VOLUME == 35 && pf::MT_COUNT == 39, "update the lists above with the enums");
         auto shows = [](int id, int value, const char* text) {
             return pf::paramDisplay(id, pf::paramNorm(id, static_cast<float>(value))) == text;
         };

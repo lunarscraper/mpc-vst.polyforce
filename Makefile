@@ -224,6 +224,7 @@ $(ARM_BENCH): tools/bench.cpp dsp/wavetable.cpp $(HDR) $(GEN)
 BENCH_ARGS ?= -v 1,2,4,8 -u 1,2,4,8 -s 3
 BENCH_MATRIX_ARGS ?= -v 8 -u 1,8 -s 3 -m 1   # the same with a busy modulation matrix
 BENCH_STAGE_ARGS ?= -v 8 -u 1,8 -s 3
+BENCH_WARP_ARGS ?= -v 8 -u 1,8 -s 3 -w 7   # both oscillators warped (Mirror: two reads per sample)
 TABLE      ?= $(shell find "$(WAVETABLES)" -name '*.wav' -size +2047k 2>/dev/null | sort | head -1)
 # The first table at least 2 MB (a 256-frame float table is 2 MB) under $(WAVETABLES); none:
 # the large-table run is skipped, and says so. The make fails if any pfbench run fails.
@@ -235,12 +236,13 @@ bench-device: $(ARM_SO) $(ARM_SO_STAGES) $(ARM_BENCH)
 	$(SSH) $(FORCE) 'r=0; T=; [ -f /tmp/pf_table.wav ] && T="-t /tmp/pf_table.wav"; \
 		/tmp/pfbench /tmp/polyforce.so $(BENCH_ARGS) -c 1 || r=1; \
 		/tmp/pfbench /tmp/polyforce.so $(BENCH_MATRIX_ARGS) -c 1 || r=1; \
+		/tmp/pfbench /tmp/polyforce.so $(BENCH_WARP_ARGS) -c 1 || r=1; \
 		/tmp/pfbench /tmp/polyforce_stages.so $(BENCH_STAGE_ARGS) -c 1 $$T || r=1; \
 		rm -f /tmp/pfbench /tmp/polyforce.so /tmp/polyforce_stages.so /tmp/pf_table.wav; exit $$r'
 
 # Release zip: plugin + skin + sd88me's installer (stops MPC, backs up and edits
 # MPC.settings, restarts MPC).
-PLUGIN_VERSION ?= 0.0.4
+PLUGIN_VERSION ?= 0.0.5
 plugin-package: $(ARM_SO) $(SKIN)
 	@# Everything shipped runs under BusyBox on the device: a CR in a script breaks it there.
 	@! grep -l "$$(printf '\r')" $(MV)/tools/release/* || { echo "error: CRLF in a shipped script"; exit 1; }

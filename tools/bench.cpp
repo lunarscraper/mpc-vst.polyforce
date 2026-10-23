@@ -3,12 +3,13 @@
 // CPU clock. Same verdict rule as sd88me's tools/bench.sh (percent of the 2902 us block):
 // PASS p99 <= 15% and max <= 50%, WARN p99 <= 35% and max <= 80%, else FAIL.
 //
-//   pfbench <plugin.so> [-v 1,2,4,8] [-u 1,2,4,8] [-s seconds] [-c cpu] [-t table.wav] [-m 1]
+//   pfbench <plugin.so> [-v 1,2,4,8] [-u 1,2,4,8] [-s seconds] [-c cpu] [-t table.wav] [-m 1] [-w mode]
 //
 // Patch under test: both oscillators on, filter 1 LP24 with drive, filter 2 LP12, serial.
 // -m 1 adds a busy modulation matrix (8 slots): LFO 1 on pitch and filter 1, LFO 2 on osc 1's
 // position, filter 2 and the amp attack (envelope coefficients recomputed as it moves), env 2
 // on osc 2's position, a slewed velocity and an S&H random slot.
+// -w <mode> warps both oscillators (dsp/warp.h WarpMode 1..8, amount 60%): 7 = Mirror, the costliest.
 // Hermetic: the plugin reads no user folders and saves nothing (favorites, recent lists).
 // -t also times importing one wavetable WAV (the loader is linked in, not the .so's copy):
 // what picking a table on the touchscreen would cost on this CPU; then plays the largest voice
@@ -109,7 +110,7 @@ void midi(AEffect* e, uint8_t st, uint8_t d1, uint8_t d2) {
 
 int main(int argc, char** argv) {
     if (argc < 2) {
-        std::fprintf(stderr, "usage: %s <plugin.so> [-v 1,2,4,8] [-u 1,2,4,8] [-s seconds] [-c cpu] [-t table.wav] [-m 1]\n", argv[0]);
+        std::fprintf(stderr, "usage: %s <plugin.so> [-v 1,2,4,8] [-u 1,2,4,8] [-s seconds] [-c cpu] [-t table.wav] [-m 1] [-w mode]\n", argv[0]);
         return 2;
     }
     std::vector<int> voices = {1, 2, 4, 8}, unison = {1, 2, 4, 8};
@@ -117,6 +118,7 @@ int main(int argc, char** argv) {
     int cpu = 1;
     const char* table = nullptr;
     bool busy = false;
+    int warp = 0;
     for (int i = 2; i + 1 < argc; i += 2) {
         if (!std::strcmp(argv[i], "-m")) busy = std::atoi(argv[i + 1]) != 0;
         if (!std::strcmp(argv[i], "-v")) voices = list(argv[i + 1]);
@@ -124,6 +126,7 @@ int main(int argc, char** argv) {
         else if (!std::strcmp(argv[i], "-s")) seconds = std::atof(argv[i + 1]);
         else if (!std::strcmp(argv[i], "-c")) cpu = std::atoi(argv[i + 1]);
         else if (!std::strcmp(argv[i], "-t")) table = argv[i + 1];
+        else if (!std::strcmp(argv[i], "-w")) warp = std::atoi(argv[i + 1]);
     }
     if (cpu >= 0) {   // like `taskset`: off MPC's isolated audio cores, one core for the whole run
         cpu_set_t set;
@@ -203,6 +206,11 @@ int main(int argc, char** argv) {
     set(pf::P_F2_TYPE, 1);   // LP12
     set(pf::P_F2_CUT, 6000.0f);
     set(pf::P_E2_POS, 0.3f);
+    if (warp > 0) {
+        for (int id : {pf::P_O1_WARP, pf::P_O2_WARP}) set(id, static_cast<float>(warp));
+        for (int id : {pf::P_O1_WARP_AMT, pf::P_O2_WARP_AMT}) set(id, 0.6f);
+        std::printf("warp: both oscillators, mode %d, amount 60%%\n", warp);
+    }
     if (busy) {
         struct S { int src, tgt; float amt; int mod; };
         const S slots[8] = {{pf::MS_LFO1, pf::MT_PITCH, 0.05f, pf::MM_NONE},

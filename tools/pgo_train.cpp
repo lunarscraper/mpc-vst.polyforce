@@ -2,7 +2,8 @@
 // plugin is linked in and plays a spread of patches through VSTPluginMain under qemu-arm, the
 // way MPC drives it. Every filter type in filter 1 (filter 2 another one), the three engines,
 // unison 1 / 3 / 8, a busy matrix, more notes than voices (steals), a release, both routings,
-// subs, noise, the classic waves, positions moving and holding still (the frame cache). The
+// subs, noise, the classic waves, positions moving and holding still (the frame cache), every
+// oscillator warp mode on both play kinds (osc 1 warped, its amount modulated in the busy case). The
 // profile only steers the compiler (which paths are hot); what the trainer leaves out is still
 // optimised as usual (-fprofile-partial-training).
 #include "../dsp/mod.h"
@@ -85,6 +86,8 @@ int main() {
                     set(pf::P_O1_UNI, static_cast<float>(uni));
                     set(pf::P_O2_UNI, static_cast<float>(uni));
                     set(pf::P_O2_WAVE, static_cast<float>(f1 % 7));
+                    set(pf::P_O1_WARP, static_cast<float>((f1 + eng * 3 + uni) % 9));   // 0 = off: both paths
+                    set(pf::P_O1_WARP_AMT, 0.5f);
                     if (busy) {
                         struct S { int src, tgt; float amt; int mod; };
                         const S slots[8] = {{pf::MS_LFO1, pf::MT_PITCH, 0.05f, pf::MM_NONE},
@@ -94,7 +97,7 @@ int main() {
                                             {pf::MS_ENV2, pf::MT_O2_POS, 0.5f, pf::MM_NONE},
                                             {pf::MS_VELOCITY, pf::MT_CUT, 0.2f, pf::MM_SLEW},
                                             {pf::MS_NOTE, pf::MT_O1_PAN, 0.5f, pf::MM_SAMPLE_HOLD},
-                                            {pf::MS_LFO1, pf::MT_F1_DRIVE, 0.5f, pf::MM_NONE}};
+                                            {pf::MS_LFO1, pf::MT_O1_WARP, 0.4f, pf::MM_NONE}};
                         const int stride = pf::P_M2_SRC - pf::P_M1_SRC;
                         for (int k = 0; k < 8; ++k) {
                             set(pf::P_M1_SRC + k * stride, static_cast<float>(slots[k].src));
