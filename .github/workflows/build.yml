@@ -46,6 +46,8 @@ jobs:
         run: >-
           python3 third_party/mpc-vst-plugins/tools/catalog_check.py dist/*-mpc-armv7.zip
           --catalog --expect-id polyforce --expect-repo Devko/PolyForce
+      - name: Install smoke test
+        run: python3 third_party/mpc-vst-plugins/tools/install_smoke.py dist/*-mpc-armv7.zip
       - uses: actions/upload-artifact@v4
         with:
           name: PolyForce-mpc-armv7
