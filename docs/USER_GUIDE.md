@@ -206,7 +206,7 @@ its frames are kept.
 
 | Root | Path |
 |---|---|
-| Plugin folder | `/sdcard/Synths/Devko - VST - PolyForce/Wavetables` |
+| Plugin folder | `/sdcard/VST2 Plugins/Devko - VST - PolyForce/Wavetables` (MPC OS 3.10.1+; before: `/sdcard/Synths/...`) |
 | SSD | `/media/AkaiForce/Wavetables` (skipped when no drive is mounted) |
 
 - The first folder level is the **category**; files directly in a root go to *Unsorted*. Same-named
@@ -271,7 +271,7 @@ saved with the project and with presets.
 
 ## Files on the device
 
-The plugin folder is `/sdcard/Synths/Devko - VST - PolyForce`. Where a kind of file has two roots,
+The plugin folder is `/sdcard/VST2 Plugins/Devko - VST - PolyForce` on MPC OS 3.10.1+ (before 3.10.1: `/sdcard/Synths/Devko - VST - PolyForce`). Where a kind of file has two roots,
 the first is where PolyForce saves.
 
 | What | Where |

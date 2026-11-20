@@ -27,8 +27,11 @@ design.
 
 The pages are defined in `surface/surface.py` (`pages()`).
 
-- **Look:** rounded cards (`style=td3`) on one flat ground (`#15181d`, the same colour as the card
-  fill, so no control shows a box behind it), a teal accent (`#3fd0c0`), Titillium Web.
+- **Look (Force-Look):** rounded cards (`style=td3`) on one flat ground in deep ocean (`#0f3443`, the same
+  colour as the card fill, so no control shows a box behind it), teal card lines and knob rings, coral arcs
+  and chosen options (`#ff8a5c`), warm values (`#ffc27a`), white pointers, Titillium Web. Each of the
+  Force plugins has its own colours (Rattler green, carp 2000 orange, Okto magenta/cyan). Until 1.0 the
+  ground was graphite (`#15181d`) with a teal accent.
 - **Structure:** seven tabs in MPC's tab strip: OSC, FILTER, MOD, MATRIX, BROWSE, VOICE, SEQ (BROWSE
   among the first five). A tab with several pages uses MPC's own sub-pages, as AIR DrumSynth Multi
   does: dots under the tab, a tap on it again for the next page, each page its own screen. Every page
@@ -41,7 +44,7 @@ The pages are defined in `surface/surface.py` (`pages()`).
   sub-pages from `skin_style.json`'s `tab_groups`.
 - **Knobs** have a value arc from the minimum, or from 12 o'clock for bipolar parameters (pan, fine
   tune, amounts…). The generator draws one filmstrip per knob radius, so the radius picks the look
-  (30, bipolar 29; small 22, bipolar 21); `KNOB_STYLES` in `surface.py` is the one place for it.
+  (38, bipolar 37; small 22, bipolar 21 - the big knobs grew from 30 with the Force-Look); `KNOB_STYLES` in `surface.py` is the one place for it.
 - **Names:** MPC shows a parameter's own name under its knob or slider and in its Q-Link overlay
   (not the layout's `label=`), so names are at most 13 characters for knobs, sliders and toggles,
   unique, and must fit their label.
