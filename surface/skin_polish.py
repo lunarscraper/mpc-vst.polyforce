@@ -583,8 +583,9 @@ def selftest(samples=None):
         some_btn = sorted(sk.buttons)[0] + "_on.png"
         some_arrow = sorted(sk.arrows)[0]
         refused("missing button", lambda f: os.remove(os.path.join(f, some_btn)), some_btn + ": missing")
-        refused("wrong knob size", lambda f: Image.new("RGB", (70, 70 * 127), dummy).save(os.path.join(f, "sh_knob_r30.png")),
-                "sh_knob_r30.png: is 70x8890")
+        big = max(sk.knobs)   # a radius the layout uses, in a wrong size
+        refused("wrong knob size", lambda f: Image.new("RGB", (70, 70 * 127), dummy).save(os.path.join(f, "sh_knob_r%d.png" % big)),
+                "sh_knob_r%d.png: is 70x8890" % big)
         refused("wrong arrow size", lambda f: Image.new("RGB", (40, 41), dummy).save(os.path.join(f, some_arrow)),
                 some_arrow + ": is 40x41")
         refused("unknown button", lambda f: Image.new("RGB", (60, 52), dummy).save(os.path.join(f, "sh_btn_zz_ZZ_on.png")),

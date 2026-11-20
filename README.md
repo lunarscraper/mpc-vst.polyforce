@@ -65,7 +65,8 @@ scp -r PolyForce-<version> root@<device-ip>:/tmp/
 ssh root@<device-ip> sh /tmp/PolyForce-<version>/install.sh
 ```
 
-The installer **stops MPC** (save your project first), copies the plugin into `/sdcard/Synths`,
+The installer **stops MPC** (save your project first), copies the plugin into `<drive>/VST2 Plugins` on MPC OS 3.10.1 and later (an existing copy there is
+updated in place), on older systems into `/sdcard/Synths`,
 backs up and edits `MPC.settings`, and starts MPC again. Running it again upgrades in place and
 keeps your own wavetables, presets, tunings and favorites. Then add **PolyForce** to a track from
 MPC's instrument plugins.

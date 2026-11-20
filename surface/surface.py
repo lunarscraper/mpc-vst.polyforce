@@ -341,11 +341,11 @@ def params_json():
 # y=440 (h=270) or one full-height card (h=552), x=24 w=1232 or halves at x=24 / 648 (w=608). Nothing
 # may sit in a card's title band (y .. y+44: td3 draws the title rule at y+38). skin_polish.py (run by
 # `make skin` after the generator) redraws the knob strips, the trigger buttons and the stepper arrows.
-PALETTE = {
-    "bg": "15181d", "box": "15181d", "line": "2b323c", "ink": "e8ecf1", "ink_dim": "8e98a6",
-    "ink_faint": "262c35", "accent": "3fd0c0", "accent_hi": "8cf2e6", "lcd": "0b0d11",
-    "seg_inactive": "1d232b", "seg_active": "3fd0c0", "seg_active_tx": "06201c", "tile_on": "10322e",
-    "btn_bg": "252d37", "title": "9aa5b3", "knob_face": "232a33", "knob_ring": "323b46", "knob_dot": "3fd0c0",
+PALETTE = {   # Force-Look (1.1): deep ocean with coral arcs - its own colours next to Rattler, carp 2000 and Okto
+    "bg": "0f3443", "box": "0f3443", "line": "3fb8b0", "ink": "f2fbff", "ink_dim": "ffc27a",
+    "ink_faint": "1d5363", "accent": "ff8a5c", "accent_hi": "ffd0a8", "lcd": "07202a",
+    "seg_inactive": "15495a", "seg_active": "ff8a5c", "seg_active_tx": "2a0e05", "tile_on": "1d5a6c",
+    "btn_bg": "1a5566", "title": "9fe9e2", "knob_face": "13404f", "knob_ring": "3fb8b0", "knob_dot": "ffffff",
 }
 FONT_LABEL = "fonts/TitilliumWeb-SemiBold.ttf"   # font_label=: shadow_skin sizes the buttons with it
 LIVE_FONT = "fonts/TitilliumWeb-SemiBold.ttf"    # the face MPC draws live text in (names, values)
@@ -368,7 +368,7 @@ WAVE_X0, WAVE_PITCH, WAVE_H = 120, 13, 128
 # grows from 12 o'clock) is one pixel smaller than a unipolar knob of the same size. This table is the only
 # place that says so: check_layout() holds every knob to it and skin_polish.py draws the strips from it
 # (exported as build/skin_style.json).
-KNOB_SIZES = {"big": 30, "small": 22}
+KNOB_SIZES = {"big": 38, "small": 22}
 KNOB_STYLES = {r - b: {"bipolar": bool(b), "track": 4 if r - b >= 28 else 3, "pointer": 3.0 if r - b >= 28 else 2.5}
                for r in KNOB_SIZES.values() for b in (0, 1)}
 BIPOLAR_EXTRA = ("o1_sub_tune", "o2_sub_tune")    # -36..+12 st, centred on its default an octave down
